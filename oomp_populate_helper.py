@@ -80,14 +80,11 @@ def write_extras(extras, default_input):
 
 
 def build_oomp_id(d):
-    fields = [
-        d.get("taxonomy_1", ""),
-        d.get("taxonomy_2", ""),
-        d.get("taxonomy_3", ""),
-        d.get("taxonomy_4", ""),
-        d.get("taxonomy_5", ""),
-        d.get("taxonomy_6", ""),
-        d.get("taxonomy_7", ""),
-        d.get("taxonomy_8", ""),
-    ]
+    for i in range(1, 16):
+        if f"taxonomy_{i}" not in d:
+            d[f"taxonomy_{i}"] = ""
+    fields = []
+
+    for i in range(1, 16):
+        fields.append(d.get(f"taxonomy_{i}", ""))
     return "_".join([str(f).strip().replace(" ", "_") for f in fields if f])

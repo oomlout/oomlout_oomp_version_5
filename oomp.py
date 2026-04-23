@@ -27,7 +27,7 @@ parts_short_code = {}
 
 
 names_of_main_elements = []
-for i in range(1, 15):
+for i in range(1, 16):
     names_of_main_elements.append(f"taxonomy_{i}")
 
 
