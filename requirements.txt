@@ -1,7 +1,3 @@
 # Core dependency used by checked-in code
 PyYAML>=6.0
 
-# Optional modules referenced by the repo but not specified here:
-# - oom_git
-# - oomlout_roboclick
-# - oomp_create_parts (referenced indirectly/commented in oomp.py)

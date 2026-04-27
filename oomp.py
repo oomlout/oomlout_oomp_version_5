@@ -1,8 +1,6 @@
 
 import oomp_bip39
 
-import oom_git
-
 import copy
 
 parts = {}
@@ -21,25 +19,6 @@ for i in range(1, 16):
     names_of_main_elements.append(f"taxonomy_{i}")
 
 
-def clone_data_files():
-    repo_list = []
-    repo_list.append("https://github.com/oomlout/oomlout_oomp_footprint_bot")
-    repo_list.append("https://github.com/oomlout/oomlout_oomp_symbol_bot")
-    repo_list.append("https://github.com/oomlout/oomlout_oomp_project_bot")
-
-    #if tmp/ doesn't exist create it
-    
-    if not os.path.exists("tmp"):
-        os.makedirs("tmp")
-
-    for repo in repo_list:
-        #clone repo using os.system to tmp/repo_name
-        print(f"cloning {repo}")
-        
-        repo_name = repo.split('/')[-1] 
-        directory = "tmp"     
-        oom_git.clone(repo=repo, directory=directory)
-        oom_git.pull(directory=directory)
 
 
 
