@@ -1,4 +1,6 @@
 import copy
+import glob
+import os
 
 import oomlout_roboclick
 
@@ -13,13 +15,21 @@ def add_icon(part, count, mode_ai_wait="slow", icon_detail=""):
     )
     image_detail = f"an image of {detail}"
 
+    actions = []
+
     action = {}
     action["command"] = "ai_skill_image_laser_cut_logo_full"
     action["file_destination"] = file_test
     action["image_detail"] = image_detail
     action["mode_ai_wait"] = mode_ai_wait
+    actions.append(copy.deepcopy(action))
 
-    actions = [copy.deepcopy(action)]
+    action = {}
+    action["command"] = "close_tab"
+    actions.append(copy.deepcopy(action))
+
+
+
     oomlout_roboclick.add_action(
         part=part,
         action_type=action_type,
@@ -144,3 +154,59 @@ def add_research(part, folder_project, mode_ai_wait, count):
         file_destination_yaml=file_destination_yaml,
         action_name=action_name,
     )
+
+
+def add_jinja_template(part, templates, mode_ai_wait="slow", count=0, convert_to_pdf=False, convert_to_png=False):
+    template_root_defaults = []
+    template_root_defaults.append({"template_folder": "source_file\\template_jinja\\template_jinja_label_oomlout_76_2_mm_50_8_mm", "output_filename": "label_oomp.svg"})
+
+    templates_2 = []
+    for template in templates:
+        template_folder = template.get("template_folder", "")
+        if template_folder == "default":
+            templates_2.extend(template_root_defaults)
+        else:
+            templates_2.append(template)
+    templates = templates_2
+
+    for template in templates:
+        template_folder = template.get("template_folder", "")
+        template_folder = template_folder.replace("/", os.sep).replace("\\", os.sep)        
+        template_file_base = template.get("template_file", "working.svg.j2")
+        template_file = os.path.join(template_folder, template_file_base)
+
+        
+
+        output_filename = template.get("output_filename", "")
+        
+
+        directory = part.get("directory", oomlout_roboclick.get_directory(part))
+        os.makedirs(directory, exist_ok=True)
+        file_output = os.path.join(output_filename)
+
+        action_type = "ai"
+        action_name = f"step_{count}_jinja_template_{output_filename}"
+        file_test = output_filename
+
+        actions = []
+
+        action={}
+        action["command"] = "jinja_template"
+        action["file_template"] = template_file
+        action["file_output"] = file_output
+        action["dict_data"] = part
+        action["search_and_replace"] = template.get("search_and_replace", [])
+        action["convert_to_pdf"] = convert_to_pdf
+        action["convert_to_png"] = convert_to_png
+        actions.append(action)
+
+        oomlout_roboclick.add_action(
+            part=part,
+            action_type=action_type,
+            action_name=action_name,
+            actions=actions,
+            file_test=file_test,
+        )
+        count += 1
+
+    return count

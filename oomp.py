@@ -1,16 +1,6 @@
 
-# import oomp_create_parts
-# import oomp_kicad_footprint
-# import oomp_kicad_symbol
 import oomp_bip39
-import oomp_word
 
-# import oomp_distributors
-# import oomp_manufacturers
-# import oomp_packaging
-# import oomp_extra_details
-
-import oom_markdown
 import oom_git
 
 import copy
