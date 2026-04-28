@@ -183,8 +183,13 @@ def add_part(**kwargs):
                             first_letter = kwargs[typ][0]
                         if format == "upper":
                             kwargs[f"{typ}_{format}"] = kwargs[typ].upper()
-                        if format == "capital":
-                            
+                            #length of the value
+                            for i in range(1,6):
+                                if len(kwargs[typ]) >= i:
+                                    kwargs[f"{typ}_{format}_length_{i}"] = kwargs[typ][0:i].upper()
+                                else:
+                                    kwargs[f"{typ}_{format}_length_{i}"] = kwargs[typ].upper()
+                        if format == "capital":                            
                             value = kwargs[typ].replace("_", " ").title()
                             value = value.replace(" X ", " x ")
                             value = value.replace("Mm", "mm")
@@ -198,6 +203,12 @@ def add_part(**kwargs):
                             kwargs[f"{typ}_{format}"] = first_letter
                         if format == "first_letter_upper":
                             kwargs[f"{typ}_{format}"] = first_letter.upper()
+                        #length of the value
+                        for i in range(1,6):
+                            if len(kwargs[typ]) >= i:
+                                kwargs[f"{typ}_length_{i}"] = kwargs[typ][0:i]
+                            else:
+                                kwargs[f"{typ}_length_{i}"] = kwargs[typ]
 
 
             #add id as a keyed item to kwargs

@@ -87,4 +87,5 @@ def build_oomp_id(d):
 
     for i in range(1, 16):
         fields.append(d.get(f"taxonomy_{i}", ""))
-    return "_".join([str(f).strip().replace(" ", "_") for f in fields if f])
+    return_value = "_".join([str(f).strip().replace(" ", "_") for f in fields if f])    
+    return return_value

@@ -186,12 +186,12 @@ def add_jinja_template(part, templates, mode_ai_wait="slow", count=0, convert_to
 
         action_type = "ai"
         action_name = f"step_{count}_jinja_template_{output_filename}"
-        file_test = output_filename
+        file_test = output_filename.replace(".svg", ".pdf")
 
         actions = []
 
         action={}
-        action["command"] = "jinja_template"
+        action["command"] = "text_jinja_template"
         action["file_template"] = template_file
         action["file_output"] = file_output
         action["dict_data"] = part
