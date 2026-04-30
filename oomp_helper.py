@@ -1,41 +1,104 @@
 import copy
 import glob
 import os
+from pathlib import Path
 
 import oomlout_roboclick
 
+PROMPT_ROOT = Path(__file__).resolve().parent / "prompts"
+IMAGE_GENERATE_PROMPT = "Generate the image take all the time you need"
+
+
+class _SafePromptDict(dict):
+    def __missing__(self, key):
+        return "{" + key + "}"
+
+
+def _load_prompt_directory(prompt_folder, prompt_values=None):
+    prompt_values = prompt_values or {}
+    prompt_directory = Path(prompt_folder)
+    if not prompt_directory.is_absolute():
+        prompt_directory = PROMPT_ROOT / prompt_directory
+
+    prompts = []
+    for i in range(1, 50):
+        prompt_file = prompt_directory / f"working_{i}.md"
+        if not prompt_file.exists():
+            break
+
+        prompt_text = prompt_file.read_text(encoding="utf-8")
+        prompt_text = prompt_text.format_map(_SafePromptDict(prompt_values))
+        prompts.append({"text": prompt_text, "delay": "120"})
+
+    if not prompts:
+        raise FileNotFoundError(f"No prompt files found in {prompt_directory}")
+
+    return prompts
+
+
+def add_image_from_prompt_directory(
+    part,
+    count,
+    prompt_folder,
+    file_name,
+    action_name,
+    mode_ai_wait="slow",
+    prompt_values=None,
+    generate_prompt=IMAGE_GENERATE_PROMPT,
+):
+    prompt_data = copy.deepcopy(part)
+    if prompt_values:
+        prompt_data.update(prompt_values)
+
+    prompts = _load_prompt_directory(prompt_folder, prompt_data)
+    prompts.append(
+        {
+            "file_name_image": file_name,
+            "text": generate_prompt,
+            "delay": "120",
+        }
+    )
+
+    part2 = copy.deepcopy(part)
+    return oomlout_roboclick.ai_query_from_prompts(
+        part=part,
+        part2=part2,
+        prompts=prompts,
+        mode_ai_wait=mode_ai_wait,
+        count=count,
+        action_name=action_name,
+    )
+
 
 def add_icon(part, count, mode_ai_wait="slow", icon_detail=""):
-    action_type = "ai"
     action_name = f"step_{count}_create_icon"
-    file_test = "initial_generated_icon.png"
-
-    detail = (
-        f'{part.get("name_space", "")} {icon_detail}'
-    )
+    detail = f'{part.get("name_space", "")} {icon_detail}'.strip()
     image_detail = f"an image of {detail}"
 
-    actions = []
-
-    action = {}
-    action["command"] = "ai_skill_image_laser_cut_logo_full"
-    action["file_destination"] = file_test
-    action["image_detail"] = image_detail
-    action["mode_ai_wait"] = mode_ai_wait
-    actions.append(copy.deepcopy(action))
-
-    action = {}
-    action["command"] = "close_tab"
-    actions.append(copy.deepcopy(action))
-
-
-
-    oomlout_roboclick.add_action(
+    return add_image_from_prompt_directory(
         part=part,
-        action_type=action_type,
         action_name=action_name,
-        actions=actions,
-        file_test=file_test,
+        count=count,
+        prompt_folder="image_laser_cut_logo_full",
+        file_name="initial_generated_icon.png",
+        mode_ai_wait=mode_ai_wait,
+        prompt_values={"image_detail": image_detail},
+    )
+
+
+def add_image_chibi(part, count, mode_ai_wait="slow", chibi_detail=""):
+    action_name = f"step_{count}_create_image_chibi"
+    detail = f'{part.get("name_space", "")} {chibi_detail}'.strip()
+    image_detail = f"a fun chibi CGI inspired picture of {detail}"
+
+    return add_image_from_prompt_directory(
+        part=part,
+        action_name=action_name,
+        count=count,
+        prompt_folder="image_chibi_cgi_fun",
+        file_name="initial_generated_chibi.png",
+        mode_ai_wait=mode_ai_wait,
+        prompt_values={"image_detail": image_detail},
     )
 
 
@@ -45,7 +108,7 @@ def add_image(part, folder_project, files_to_trace, mode_ai_wait, count):
     prompts.append(
         {
             "folder_name": f"roboclick\\{folder_project}\\prompt_three_dimension_letter_two_line_1",
-            "delay": "60",
+            "delay": "120",
         }
     )
 
@@ -56,7 +119,7 @@ def add_image(part, folder_project, files_to_trace, mode_ai_wait, count):
             {
                 "file_name_image": file_name,
                 "text": "Generate the image take all the time you need",
-                "delay": "60",
+                "delay": "120",
             }
         )
         files_to_trace.append(file_name)
@@ -67,12 +130,12 @@ def add_image(part, folder_project, files_to_trace, mode_ai_wait, count):
 
 def add_prompt_image(part, folder_project, prompt_folder, file_name, files_to_trace, mode_ai_wait, count):
     prompts = []
-    prompts.append({"folder_name": f"roboclick\\{folder_project}\\{prompt_folder}", "delay": "60"})
+    prompts.append({"folder_name": f"roboclick\\{folder_project}\\{prompt_folder}", "delay": "120"})
     prompts.append(
         {
             "file_name_image": file_name,
             "text": "Generate the image take all the time you need",
-            "delay": "60",
+            "delay": "120",
         }
     )
     files_to_trace.append(file_name)
@@ -103,13 +166,13 @@ def add_cover_background(part, folder_project, files_to_trace, mode_ai_wait, cou
         f'{part.get("value_2", "")}, and {part.get("value_3", "")}'
     )
     prompts = []
-    prompts.append({"folder_name": f"roboclick\\{folder_project}\\prompt_image_background_1", "delay": "60"})
+    prompts.append({"folder_name": f"roboclick\\{folder_project}\\prompt_image_background_1", "delay": "120"})
     file_name = "image_cover_background.png"
     prompts.append(
         {
             "file_name_image": file_name,
             "text": "Generate the image take all the time you need",
-            "delay": "60",
+            "delay": "120",
         }
     )
     files_to_trace.append(file_name)
