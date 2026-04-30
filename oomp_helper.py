@@ -257,7 +257,7 @@ def add_jinja_template(part, templates, mode_ai_wait="slow", count=0, convert_to
         action["command"] = "text_jinja_template"
         action["file_template"] = template_file
         action["file_output"] = file_output
-        action["dict_data"] = part
+        action["dict_data"] = copy.deepcopy(part)
         action["search_and_replace"] = template.get("search_and_replace", [])
         action["convert_to_pdf"] = convert_to_pdf
         action["convert_to_png"] = convert_to_png
