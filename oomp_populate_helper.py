@@ -4,6 +4,10 @@ import os
 import yaml
 
 
+def _normalize_oomp_id_segment(value):
+    return str(value).strip().replace(" ", "_").replace(".", "_")
+
+
 def build_oobb_entry(input_dict):
     oomp_id_item = build_oomp_id(input_dict)
     new_dict = copy.deepcopy(input_dict)
@@ -87,5 +91,5 @@ def build_oomp_id(d):
 
     for i in range(1, 16):
         fields.append(d.get(f"taxonomy_{i}", ""))
-    return_value = "_".join([str(f).strip().replace(" ", "_") for f in fields if f])    
+    return_value = "_".join([_normalize_oomp_id_segment(f) for f in fields if f])
     return return_value
