@@ -55,7 +55,7 @@ def build_oobb_entry(input_dict):
     return new_dict
 
 
-def write_extras(extras, default_input):
+def write_extras(extras, default_input={}):
     for input_dict in extras:
         oobb = input_dict.get("oobb", False)
         if oobb:

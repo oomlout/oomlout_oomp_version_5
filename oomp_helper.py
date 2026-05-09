@@ -5,6 +5,7 @@ from pathlib import Path
 
 import oomlout_roboclick
 
+##C:\gh\oomlout_oomp_version_5\prompts
 PROMPT_ROOT = Path(__file__).resolve().parent / "prompts"
 IMAGE_GENERATE_PROMPT = "Generate the image take all the time you need"
 
@@ -12,6 +13,36 @@ IMAGE_GENERATE_PROMPT = "Generate the image take all the time you need"
 class _SafePromptDict(dict):
     def __missing__(self, key):
         return "{" + key + "}"
+
+
+def get_prompt_directories(prompt_root=PROMPT_ROOT):
+    prompt_root = Path(prompt_root)
+    if not prompt_root.exists():
+        return []
+
+    prompt_folders = []
+    for child in sorted(prompt_root.iterdir(), key=lambda item: item.name.lower()):
+        if not child.is_dir():
+            continue
+        if next(child.glob("working_*.md"), None) is None:
+            continue
+        prompt_folders.append(child.name)
+    return prompt_folders
+
+
+def _resolve_prompt_image_detail(part, image_detail=""):
+    detail = str(image_detail or part.get("name_space", "")).strip()
+    return detail
+
+
+def _prompt_action_name(count, prompt_folder):
+    prompt_name = Path(prompt_folder).name
+    return f"step_{count}_create_{prompt_name}"
+
+
+def _prompt_file_name(prompt_folder):
+    prompt_name = Path(prompt_folder).name
+    return f"initial_generated_{prompt_name}.png"
 
 
 def _load_prompt_directory(prompt_folder, prompt_values=None):
@@ -70,6 +101,117 @@ def add_image_from_prompt_directory(
     )
 
 
+def _add_default_prompt_image(part, count, prompt_folder, mode_ai_wait="slow", image_detail=""):
+    return add_image_from_prompt_directory(
+        part=part,
+        action_name=_prompt_action_name(count, prompt_folder),
+        count=count,
+        prompt_folder=prompt_folder,
+        file_name=_prompt_file_name(prompt_folder),
+        mode_ai_wait=mode_ai_wait,
+        prompt_values={"image_detail": _resolve_prompt_image_detail(part, image_detail)},
+    )
+
+
+def add_image_birthday_banner_frame_vector(part, count, mode_ai_wait="slow", image_detail=""):
+    return _add_default_prompt_image(
+        part=part,
+        count=count,
+        prompt_folder="image_birthday_banner_frame_vector",
+        mode_ai_wait=mode_ai_wait,
+        image_detail=image_detail,
+    )
+
+
+def add_image_birthday_clipart_vector_pack(part, count, mode_ai_wait="slow", image_detail=""):
+    return _add_default_prompt_image(
+        part=part,
+        count=count,
+        prompt_folder="image_birthday_clipart_vector_pack",
+        mode_ai_wait=mode_ai_wait,
+        image_detail=image_detail,
+    )
+
+
+def add_image_birthday_icon_badge_vector(part, count, mode_ai_wait="slow", image_detail=""):
+    return _add_default_prompt_image(
+        part=part,
+        count=count,
+        prompt_folder="image_birthday_icon_badge_vector",
+        mode_ai_wait=mode_ai_wait,
+        image_detail=image_detail,
+    )
+
+
+def add_image_birthday_pattern_repeat_vector(part, count, mode_ai_wait="slow", image_detail=""):
+    return _add_default_prompt_image(
+        part=part,
+        count=count,
+        prompt_folder="image_birthday_pattern_repeat_vector",
+        mode_ai_wait=mode_ai_wait,
+        image_detail=image_detail,
+    )
+
+
+def add_image_enamel_pin_design(part, count, mode_ai_wait="slow", image_detail=""):
+    return _add_default_prompt_image(
+        part=part,
+        count=count,
+        prompt_folder="image_enamel_pin_design",
+        mode_ai_wait=mode_ai_wait,
+        image_detail=image_detail,
+    )
+
+
+def add_image_laser_cut_logo_full(part, count, mode_ai_wait="slow", image_detail=""):
+    return _add_default_prompt_image(
+        part=part,
+        count=count,
+        prompt_folder="image_laser_cut_logo_full",
+        mode_ai_wait=mode_ai_wait,
+        image_detail=image_detail,
+    )
+
+
+def add_image_sticker_design_vinyl(part, count, mode_ai_wait="slow", image_detail=""):
+    return _add_default_prompt_image(
+        part=part,
+        count=count,
+        prompt_folder="image_sticker_design_vinyl",
+        mode_ai_wait=mode_ai_wait,
+        image_detail=image_detail,
+    )
+
+
+def add_all_default_prompt_images(
+    part,
+    count,
+    mode_ai_wait="slow",
+    image_detail="",
+    prompt_folders=None,
+):
+    prompt_folders = prompt_folders or get_prompt_directories()
+    for prompt_folder in prompt_folders:
+        count = _add_default_prompt_image(
+            part=part,
+            count=count,
+            prompt_folder=prompt_folder,
+            mode_ai_wait=mode_ai_wait,
+            image_detail=image_detail,
+        )
+    return count
+
+
+def add_all_prompt_directories(part, count, mode_ai_wait="slow", image_detail="", prompt_folders=None):
+    return add_all_default_prompt_images(
+        part=part,
+        count=count,
+        mode_ai_wait=mode_ai_wait,
+        image_detail=image_detail,
+        prompt_folders=prompt_folders,
+    )
+
+
 def add_icon(part, count, mode_ai_wait="slow", icon_detail=""):
     action_name = f"step_{count}_create_icon"
     detail = f'{part.get("name_space", "")} {icon_detail}'.strip()
@@ -99,6 +241,16 @@ def add_image_chibi(part, count, mode_ai_wait="slow", chibi_detail=""):
         file_name="initial_generated_chibi.png",
         mode_ai_wait=mode_ai_wait,
         prompt_values={"image_detail": image_detail},
+    )
+
+
+def add_image_chibi_cgi_fun(part, count, mode_ai_wait="slow", image_detail=""):
+    return _add_default_prompt_image(
+        part=part,
+        count=count,
+        prompt_folder="image_chibi_cgi_fun",
+        mode_ai_wait=mode_ai_wait,
+        image_detail=image_detail,
     )
 
 
@@ -222,7 +374,7 @@ def add_research(part, folder_project, mode_ai_wait, count):
 def add_jinja_template(part, templates, mode_ai_wait="slow", count=0, convert_to_pdf=False, convert_to_png=False):
     template_root_defaults = []
     template_root_defaults.append({"template_folder": "source_file\\template_jinja\\template_jinja_label_oomlout_76_2_mm_50_8_mm", "output_filename": "label_oomp.svg"})
-
+    #template_root_defaults.append({"template_folder": "source_file\\template_jinja\\template_jinja_postcard_oomlout_101_6_mm_152_4_mm", "output_filename": "postcard_oomp.svg"})
     templates_2 = []
     for template in templates:
         template_folder = template.get("template_folder", "")
