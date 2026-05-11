@@ -90,6 +90,7 @@ def build_oomp_id(d):
     fields = []
 
     for i in range(1, 16):
-        fields.append(d.get(f"taxonomy_{i}", ""))
+        v = d.get(f"taxonomy_{i}", "")
+        fields.append(v)
     return_value = "_".join([_normalize_oomp_id_segment(f) for f in fields if f])
     return return_value
