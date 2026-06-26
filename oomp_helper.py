@@ -290,7 +290,8 @@ def add_prompt_image(part, folder_project, prompt_folder, file_name, files_to_tr
             "delay": "120",
         }
     )
-    files_to_trace.append(file_name)
+    if files_to_trace != "":
+        files_to_trace.append(file_name)
     part2 = copy.deepcopy(part)
     return oomlout_roboclick.ai_query_from_prompts(part, part2, prompts, mode_ai_wait, count)
 
@@ -385,43 +386,57 @@ def add_jinja_template(part, templates, mode_ai_wait="slow", count=0, convert_to
     templates = templates_2
 
     for template in templates:
+        convert_to_pdf_local = template.get("convert_to_pdf", convert_to_pdf)
+        convert_to_png_local = template.get("convert_to_png", convert_to_png)
         template_folder = template.get("template_folder", "")
         template_folder = template_folder.replace("/", os.sep).replace("\\", os.sep)        
         template_file_base = template.get("template_file", "working.svg.j2")
         template_file = os.path.join(template_folder, template_file_base)
-
         
-
-        output_filename = template.get("output_filename", "")
         
+        folder = part.get("directory", oomlout_roboclick.get_directory(part))
+        wait_for_file = template.get("wait_for_file", "")
+        if wait_for_file != "":
+            wait_for_file_absolute = os.path.join(folder, wait_for_file) if wait_for_file else None
+        
+        if wait_for_file == "" or os.path.exists(wait_for_file_absolute):
+            output_filename = template.get("output_filename", "")
+            
 
-        directory = part.get("directory", oomlout_roboclick.get_directory(part))
-        os.makedirs(directory, exist_ok=True)
-        file_output = os.path.join(output_filename)
+            directory = part.get("directory", oomlout_roboclick.get_directory(part))
+            os.makedirs(directory, exist_ok=True)
+            file_output = os.path.join(output_filename)
 
-        action_type = "ai"
-        action_name = f"step_{count}_jinja_template_{output_filename}"
-        file_test = output_filename.replace(".svg", ".pdf")
+            action_type = "ai"
+            action_name = f"step_{count}_jinja_template_{output_filename}"
+            # template dicts can override file_test; "" means always re-render so
+            # template and variable changes reach parts that already have output
+            file_test = template.get("file_test", output_filename.replace(".svg", ".pdf"))
 
-        actions = []
+            actions = []
 
-        action={}
-        action["command"] = "text_jinja_template"
-        action["file_template"] = template_file
-        action["file_output"] = file_output
-        action["dict_data"] = copy.deepcopy(part)
-        action["search_and_replace"] = template.get("search_and_replace", [])
-        action["convert_to_pdf"] = convert_to_pdf
-        action["convert_to_png"] = convert_to_png
-        actions.append(action)
+            action={}
+            action["command"] = "text_jinja_template"
+            action["file_template"] = template_file
+            action["file_output"] = file_output
+            action["dict_data"] = copy.deepcopy(part)
+            action["dict_data_files"] = template.get("dict_data_files", {})
+            action["dict_data_files_exists"] = template.get("dict_data_files_exists", {})
+            action["search_and_replace"] = template.get("search_and_replace", [])
+            action["convert_to_pdf"] = convert_to_pdf_local
+            action["convert_to_png"] = convert_to_png_local
+            actions.append(action)
 
-        oomlout_roboclick.add_action(
-            part=part,
-            action_type=action_type,
-            action_name=action_name,
-            actions=actions,
-            file_test=file_test,
-        )
-        count += 1
+            oomlout_roboclick.add_action(
+                part=part,
+                action_type=action_type,
+                action_name=action_name,
+                actions=actions,
+                file_test=file_test,
+            )
+            count += 1
+        else:
+            print(f"Waiting for file {wait_for_file_absolute} to exist before rendering template {template_file}")
+            pass
 
     return count
