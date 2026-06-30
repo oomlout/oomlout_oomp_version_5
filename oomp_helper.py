@@ -61,7 +61,7 @@ def _load_prompt_directory(prompt_folder, prompt_values=None):
         prompt_text = prompt_text.format_map(_SafePromptDict(prompt_values))
         prompts.append({"text": prompt_text, "delay": "120"})
 
-    if not prompts:
+    if not prompts:        
         raise FileNotFoundError(f"No prompt files found in {prompt_directory}")
 
     return prompts
@@ -72,16 +72,33 @@ def add_image_from_prompt_directory(
     count,
     prompt_folder,
     file_name,
-    action_name,
+    action_name = "",
     mode_ai_wait="slow",
     prompt_values=None,
     generate_prompt=IMAGE_GENERATE_PROMPT,
 ):
+    if action_name == "":
+        action_name = _prompt_action_name(count, prompt_folder)
     prompt_data = copy.deepcopy(part)
     if prompt_values:
         prompt_data.update(prompt_values)
 
-    prompts = _load_prompt_directory(prompt_folder, prompt_data)
+    #check if prompt_folder exists
+    prompt_folder_path = Path(prompt_folder)
+    
+    if not prompt_folder_path.is_absolute():
+        import os
+        prompt_folder_path_absolute = os.path.abspath(prompt_folder_path)    
+        prompt_folder_path = Path(prompt_folder_path_absolute)
+        #if it doesn't exist
+        if not prompt_folder_path.exists():
+            prompt_folder_path = PROMPT_ROOT / prompt_folder
+            if not prompt_folder_path.exists():
+                raise FileNotFoundError(f"Prompt folder {prompt_folder} does not exist in {PROMPT_ROOT} or current working directory")
+
+    #get the striong of the path name
+    prompt_folder_path_str = str(prompt_folder_path)
+    prompts = _load_prompt_directory(prompt_folder_path_str, prompt_data)
     prompts.append(
         {
             "file_name_image": file_name,
@@ -374,9 +391,11 @@ def add_research(part, folder_project, mode_ai_wait, count):
 
 def add_jinja_template(part, templates, mode_ai_wait="slow", count=0, convert_to_pdf=False, convert_to_png=False):
     template_root_defaults = []
-    template_root_defaults.append({"template_folder": "source_file\\template_jinja\\template_jinja_label_oomlout_76_2_mm_50_8_mm", "output_filename": "label_oomp.svg"})
+    template_root_defaults.append({"template_folder": "source_file\\template_jinja\\oomp_category\\template_jinja_label_oomlout_76_2_mm_50_8_mm", "output_filename": "label_oomp.svg"})
     #template_root_defaults.append({"template_folder": "source_file\\template_jinja\\template_jinja_postcard_oomlout_101_6_mm_152_4_mm", "output_filename": "postcard_oomp.svg"})
     templates_2 = []
+    
+    #add defaultss
     for template in templates:
         template_folder = template.get("template_folder", "")
         if template_folder == "default":
@@ -392,8 +411,11 @@ def add_jinja_template(part, templates, mode_ai_wait="slow", count=0, convert_to
         template_folder = template_folder.replace("/", os.sep).replace("\\", os.sep)        
         template_file_base = template.get("template_file", "working.svg.j2")
         template_file = os.path.join(template_folder, template_file_base)
-        
-        
+        if not os.path.isabs(template_file):
+            template_file_absolute = os.path.abspath(template_file)
+            if os.path.exists(template_file_absolute):
+                template_file = template_file_absolute
+
         folder = part.get("directory", oomlout_roboclick.get_directory(part))
         wait_for_file = template.get("wait_for_file", "")
         if wait_for_file != "":
