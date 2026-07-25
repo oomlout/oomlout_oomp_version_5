@@ -1,33 +1,71 @@
-This is a context-loading and exploration step for birthday-party vector banners, frames, and signage elements. Take your time and think expansively before answering. Explore multiple decorative header, frame, panel, banner, arch, and sign-element directions, compare composition logic, border treatments, text zones, scale behavior, and supporting motif systems, and explain what will make the final vector assets clearest, most festive, most flexible, and most useful across larger birthday-party layouts. The goal here is to develop a premium vector asset direction for invitations, welcome signs, table signs, backdrop graphics, and other birthday-party display pieces.
+## READ THIS FIRST — no theme is coming in this message, and that is correct
 
-Creative direction:
-- Invent one coherent family of birthday banner, frame, and signage assets based on the theme, but push beyond generic party borders.
-- Favor reusable large-format elements such as headers, frames, shaped panels, sign backers, ribbon banners, arches, medallions, and corner decorations.
-- Supporting motifs are encouraged when they help unify the system, but they should reinforce the main framing logic rather than clutter it.
-- Look for a direction that feels celebratory and decorative while still leaving room for names, ages, or event text in later layouts.
-- Keep the visual language cohesive so border thickness, corner logic, decorative motifs, palette, and ornament style all feel like one intentional system.
-- Consider whether the family is strongest as clean modern vector frames, playful layered banners, badge-like signage panels, or another clear large-format vector direction, and explain why.
-- Favor assets that can scale from invitation accents up to welcome-sign or backdrop size without losing their structure.
+This is **step 1 of 2**. It is deliberately theme-free. You are building a reusable house style, not designing a specific banner family.
 
-Vector and layout constraints:
-- The artwork should feel like clean scalable vector graphics with crisp edges and intentional negative space.
-- Design with flexible text zones and layout usage in mind; these assets should support later composition rather than overwhelm it.
-- Full color is allowed and encouraged, but the palette should stay organized and festive rather than noisy.
-- Avoid photoreal effects, raster texture, muddy gradients, or decorative detail that only works at one exact size.
-- Favor strong silhouettes, clear border logic, and motifs that hold up when stretched, cropped, or resized.
-- If text is referenced, it should be treated as placeholder-aware signage support rather than fixed long wording.
-- Prioritize flexibility, readability, cohesion, and party appeal over ornamental excess.
+The theme arrives in step 2. Do **not** ask what the theme is. Do **not** ask any clarifying questions. Do **not** write a final image-generation prompt yet — you cannot, and attempting one is a failure of this step. Do **not** invent a placeholder theme and design for it. If you feel information is missing, that is expected: the missing information is the theme, it is coming next, and nothing in this step requires it.
 
-What to include in your response:
-- Several candidate banner, frame, and signage directions for the theme, with notes on why each could work.
-- Observations about scale behavior, text-zone usefulness, border clarity, and how the elements would work across different party pieces.
-- Notes on what decorative parts should be simplified, enlarged, repeated, spaced out, or removed.
-- Suggestions for which large-format assets the family should include and which ones matter most.
-- Observations about what makes the result feel like a premium vector party-asset system rather than one-off decorations.
-- A recommended direction, with an explanation of why it is strongest.
-- One strong final image-generation prompt at the end, ready for later use.
+Your entire output for this step is a **house style guide** that will be applied to whatever theme arrives next.
 
-Response style:
-- Explain your reasoning clearly and include all useful detail.
-- It is fine to use structure, bullets, short sections, and comparisons if that helps clarity.
-- The final prompt should explicitly call for a birthday-party vector banner and frame asset family with scalable signage use.
+---
+
+## The product this style serves
+
+**Intended use:** a family of birthday **banners, frames, and signage backers** — headers, shaped panels, ribbon banners, arches, medallions, and corner pieces that other people will later drop names, ages, and event text into. Full colour, flat vector, built to scale from an invitation accent up to a welcome sign.
+
+**Critical: this produces ONE image containing SEVERAL elements.** The output is a single square **element sheet** — separate framing pieces arranged against plain flat white with clear gaps. Not a finished invitation, not a composed sign.
+
+**The text zones must be EMPTY.** This is the defining constraint and the one thing most likely to go wrong. These are backers for text added later, so the interior of every frame and banner must be left as clean blank space. Modern image models render text readily and will happily fill an empty banner with invented or garbled words unless told plainly to leave it blank. "Blank interior, no lettering of any kind inside the frames" is the instruction that prevents it.
+
+**The failure mode to design against:** a finished invitation — one composed layout with fake names and dates baked in, which cannot be reused for anything.
+
+---
+
+## What to produce
+
+Six sections. **Budget: about 900 words total, 1,100 hard ceiling** — roughly 100–150 words each, section 6 allowed the most. Tight bullets, numbers wherever a number applies, and cut any sentence that restates this brief back at me.
+
+**1. Framing logics**
+Exactly three framing systems worth using — for example ribbon banner, arch or medallion, layered badge panel. One or two lines each: the mood it gives, how it scales up, what it costs.
+
+**2. Element mix**
+Which pieces the family should contain and why: a large header or arch, one or two shaped panels, a ribbon banner, a medallion or seal, and a corner or divider set. Give a working count that keeps each element large on the sheet, and note which two carry the family.
+
+**3. Text-zone rules**
+The most important practical section. For each element: where the text zone sits, its proportion of the element, the minimum clear margin between ornament and zone edge, and the rule that ornament never intrudes into the zone. State plainly that the zones ship **empty** — no lettering, no placeholder words, no lorem text, no squiggles standing in for text. Note which shapes give a generous horizontal zone and which fight the text.
+
+**4. Scale behaviour**
+What has to hold from a 50 mm invitation accent to a metre-wide welcome sign: border weight as a fraction of element width, ornament size floors, why detail tuned to one exact size fails, and which parts should stay simple so they survive being enlarged and cropped.
+
+**5. Cohesion and palette**
+What makes a family rather than a pile: one shared border weight, one shared corner logic, one shared ornament vocabulary, one shared palette. Give a dominant / support / accent split, a working colour count, and a rule that the interior of each text zone stays light and flat so dark text will sit on it legibly.
+
+**6. Prompt architecture for step 2**
+The most important section, so spend your words here. Specify the exact template the step-2 final prompt must follow. Use **short labelled blocks**, not one long paragraph:
+
+```
+Format:       single square sheet of separate banner and frame elements, flat vector
+Concept:      one line on the theme and mood
+Elements:     a numbered list, one line each
+Text zones:   where each sits, and that all are left completely blank
+Layout:       grid, even spacing, nothing overlapping or touching
+Line & fill:  shared border weight, flat fills, shared corner logic
+Palette:      named colours, with light flat interiors inside text zones
+Background:   plain flat white behind all elements
+Constraints:  exclusions, LAST
+```
+
+State that the finished prompt should land at **180–250 words**, and that exclusions always come last, after every positive descriptor — a model reading negatives early tends to treat them as things to compose rather than things to omit.
+
+Give the canonical exclusion list to close with, led by the text group because that is the likeliest failure: no text anywhere in the image, no words, no letters, no numbers, no names or dates, no placeholder or lorem text, no squiggles or lines standing in for text, no calligraphy. Then: no finished invitation layout, no scene or background setting, no elements overlapping or touching, nothing cropped at the edge, no photorealism or 3D, no drop shadows, no gradients, no texture or raster noise, no watermark, no signature.
+
+Also state the two things the prompt must say in plain words no matter what: it is a **single sheet of separate blank frame and banner elements on a plain flat white background**, and every **text zone is left completely empty**.
+
+---
+
+## Response style and length
+
+**About 900 words, 1,100 absolute maximum.** Bullets over prose. Concrete over aspirational — "text zone at least 1/2 the element width" beats "generous text area". No preamble, no restating this brief, no summary of what you are about to do. Skip the reasoning behind each rule; just state the rule.
+
+Close with a checklist of the rules, 12 lines at most, so step 2 can be graded against it.
+
+Then stop. No final image prompt, no questions, no theme.
