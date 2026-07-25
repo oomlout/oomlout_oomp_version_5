@@ -34,3 +34,5 @@ Response style:
 - The final prompt should explicitly call for a fun chibi CGI-inspired image with a polished, premium result.
 
 Take this context and research and search and make extra decisions based on your findings tell me all about them!
+
+You have not yet been given the topic this is about researching what type of things are great so do that you will be given the topic later, do not ask any questions
