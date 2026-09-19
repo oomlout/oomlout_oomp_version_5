@@ -55,7 +55,7 @@ Constraints:  exclusions, LAST
 
 State that the finished prompt should land at **180–250 words**, and that exclusions always come last, after every positive descriptor — a model reading negatives early tends to treat them as things to compose rather than things to omit.
 
-Give the canonical exclusion list to close with: no photorealism, no realistic human anatomy, no creepy or uncanny facial proportions, no harsh shadows, no heavy film grain or noise, no busy scenery, no clutter, no tiny unreadable detail, no muddy or muddled textures, no text, no watermark, no signature, no logos or trademarks, no extra characters.
+Give the canonical exclusion list to close with: no photorealism, no realistic human anatomy, no creepy or uncanny facial proportions, no harsh shadows, no heavy film grain or noise, no busy scenery, no clutter, no tiny unreadable detail, no muddy or muddled textures, no watermark, no signature, no logos or trademarks, no extra characters.
 
 Also state the two things the prompt must say in plain words no matter what: it is a **fun chibi CGI-style render**, and the result should read as **polished and premium**.
 

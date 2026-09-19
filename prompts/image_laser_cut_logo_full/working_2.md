@@ -12,7 +12,7 @@ Apply the house style you just wrote to this theme. Everything you need is now i
 
 - **Angles:** exactly four mascot interpretations, **one or two sentences each**. Include at least one that anthropomorphises an object or concept from the theme rather than reaching for the obvious animal, and at least one built on a visual pun. Then name your pick in a single sentence saying why it beats the other three — no full comparison table.
 - **The chosen design:** one short paragraph fixing the pose, expression, props, and line strategy. Prefer gesture or a moment of character over a static front-on stare. Cut any prop that is decoration rather than signal.
-- **Text:** one line — the exact string in quotes with exact casing, or "no text". Text is optional and a clean wordless mark often wins.
+- **Text:** one line — the exact string in quotes with exact casing, or "no text". Text is allowed and okay to include when it improves identification.
 - **Trace and small-size check:** a short bullet list of fixes only — every stroke to thicken, gap to widen, island to bridge, detail to delete. Just the fixes, not the reasoning, and not a description of what the design looks like at size.
 
 Skip anything not on that list: no tradeoff essays, no runner-up post-mortems, no notes on your own process.

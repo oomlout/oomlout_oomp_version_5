@@ -391,7 +391,7 @@ def add_research(part, folder_project, mode_ai_wait, count):
 
 def add_jinja_template(part, templates, mode_ai_wait="slow", count=0, convert_to_pdf=False, convert_to_png=False):
     template_root_defaults = []
-    template_root_defaults.append({"template_folder": "source_file\\template_jinja\\oomp_category\\template_jinja_label_oomlout_76_2_mm_50_8_mm", "output_filename": "label_oomp.svg"})
+    template_root_defaults.append({"template_folder": "source_file\\template_jinja\\template_jinja_label_oomlout_76_2_mm_50_8_mm", "output_filename": "label_oomp.svg"})
     #template_root_defaults.append({"template_folder": "source_file\\template_jinja\\template_jinja_postcard_oomlout_101_6_mm_152_4_mm", "output_filename": "postcard_oomp.svg"})
     templates_2 = []
     

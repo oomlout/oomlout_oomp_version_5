@@ -39,7 +39,7 @@ A flat list of concrete, checkable rules for the auto-trace-to-cut pipeline — 
 Bulleted rules only: square framing, margin as a fraction of the square, centre of visual mass, minimum negative space, the mascot-leads / props-support / text-reinforces hierarchy, and the shared traits that make it read as one illustrator's hand (same stroke weight, same corner radius, same eye style, same spacing rhythm).
 
 **5. Text and badge treatments**
-Text is **optional**. Briefly: when a word helps versus clutters, a maximum letter count that stays cuttable, how to specify literal text so it renders verbatim (quotes, exact casing), the letterform to ask for, and when a badge ring earns its place versus just boxing the mark in. Six bullets is plenty.
+Text is allowed and okay to include. Briefly: when a word helps versus clutters, a maximum letter count that stays cuttable, how to specify literal text so it renders verbatim (quotes, exact casing), the letterform to ask for, and when a badge ring earns its place versus just boxing the mark in. Six bullets is plenty.
 
 **6. Prompt architecture for step 2**
 The most important section, so spend your words here. Specify the exact template the step-2 final prompt must follow — and state that the finished prompt should land at **180–250 words**, long enough to carry the spec, short enough that no single instruction gets diluted. Order it to match how the image model weights a prompt:
