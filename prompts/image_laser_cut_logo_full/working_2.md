@@ -2,13 +2,13 @@
 
 The theme is: **{image_detail}**
 
-Apply the house style you just wrote to this theme. Everything you need is now in hand — do not ask questions, just work.
+Apply the house style you just wrote to this theme. Everything you need is now in hand. Generate the image during this step without asking questions or waiting for another message.
 
 ---
 
-## Part A — exploration
+## Part A — private exploration
 
-**Budget: about 450 words, 600 hard ceiling.** Push past the theme's first obvious reading, but do it briskly. No preamble, no restating the theme back at me.
+Work through these choices privately before calling the image generation tool. Do not send the exploration as a text response. Push past the theme's first obvious reading, but do it briskly.
 
 - **Angles:** exactly four mascot interpretations, **one or two sentences each**. Include at least one that anthropomorphises an object or concept from the theme rather than reaching for the obvious animal, and at least one built on a visual pun. Then name your pick in a single sentence saying why it beats the other three — no full comparison table.
 - **The chosen design:** one short paragraph fixing the pose, expression, props, and line strategy. Prefer gesture or a moment of character over a static front-on stare. Cut any prop that is decoration rather than signal.
@@ -17,11 +17,11 @@ Apply the house style you just wrote to this theme. Everything you need is now i
 
 Skip anything not on that list: no tradeoff essays, no runner-up post-mortems, no notes on your own process.
 
-## Part B — the final prompt
+## Part B — generate the image now
 
-End your response with the final image-generation prompt for the chosen direction, and nothing after it.
+Write the final image-generation prompt for the chosen direction and pass it directly to the image generation tool in this step. Invoke the tool exactly once. Do not return a text-only prompt, a fenced code block, or a plan to generate later. Finish with the generated image so it can be saved immediately from the generation window.
 
-Format it as a single fenced code block labelled `FINAL IMAGE PROMPT`, so it can be copied cleanly. Follow the six-part architecture from step 1 exactly, in order: medium and style → subject → key details → layout → line and manufacturing spec → exclusions last.
+Follow the six-part architecture from step 1 exactly, in order: medium and style → subject → key details → layout → line and manufacturing spec → exclusions last.
 
 **Length: 180–250 words.** Long enough to carry the full spec, short enough that no single instruction gets diluted. If you are over, cut adjectives and repeated style words before you cut any manufacturing rule.
 
@@ -34,4 +34,4 @@ Hard requirements for that prompt:
 - Any literal text appears in quotes with exact casing, spelled out character by character if it is unusual.
 - The exclusion list comes **last**, after every positive descriptor.
 - It is self-contained: someone pasting it cold, with no memory of this conversation, gets the same image. No "as discussed above", no "the mascot from earlier".
-- One prompt only. No variants, no alternates, no commentary after the code block.
+- One image-generation call only. No variants, no alternates, and no extra text response after the image.

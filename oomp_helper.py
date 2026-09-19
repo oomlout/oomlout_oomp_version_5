@@ -8,6 +8,10 @@ import oomlout_roboclick
 ##C:\gh\oomlout_oomp_version_5\prompts
 PROMPT_ROOT = Path(__file__).resolve().parent / "prompts"
 IMAGE_GENERATE_PROMPT = "Generate the image take all the time you need"
+IMAGE_GENERATE_IN_STEP_2_FOLDERS = {
+    "image_chibi_cgi_fun",
+    "image_laser_cut_logo_full",
+}
 
 
 class _SafePromptDict(dict):
@@ -76,6 +80,7 @@ def add_image_from_prompt_directory(
     mode_ai_wait="slow",
     prompt_values=None,
     generate_prompt=IMAGE_GENERATE_PROMPT,
+    save_image_after_last_prompt=False,
 ):
     if action_name == "":
         action_name = _prompt_action_name(count, prompt_folder)
@@ -99,13 +104,17 @@ def add_image_from_prompt_directory(
     #get the striong of the path name
     prompt_folder_path_str = str(prompt_folder_path)
     prompts = _load_prompt_directory(prompt_folder_path_str, prompt_data)
-    prompts.append(
-        {
-            "file_name_image": file_name,
-            "text": generate_prompt,
-            "delay": "300",
-        }
-    )
+    if save_image_after_last_prompt:
+        # ai_query_from_prompts turns this promptless entry into a save action.
+        prompts.append({"file_name_image": file_name})
+    else:
+        prompts.append(
+            {
+                "file_name_image": file_name,
+                "text": generate_prompt,
+                "delay": "300",
+            }
+        )
 
     part2 = copy.deepcopy(part)
     return oomlout_roboclick.ai_query_from_prompts(
@@ -127,6 +136,7 @@ def _add_default_prompt_image(part, count, prompt_folder, mode_ai_wait="slow", i
         file_name=_prompt_file_name(prompt_folder),
         mode_ai_wait=mode_ai_wait,
         prompt_values={"image_detail": _resolve_prompt_image_detail(part, image_detail)},
+        save_image_after_last_prompt=prompt_folder in IMAGE_GENERATE_IN_STEP_2_FOLDERS,
     )
 
 
@@ -242,6 +252,7 @@ def add_icon(part, count, mode_ai_wait="slow", icon_detail=""):
         file_name="initial_generated_icon.png",
         mode_ai_wait=mode_ai_wait,
         prompt_values={"image_detail": image_detail},
+        save_image_after_last_prompt=True,
     )
 
 
@@ -258,6 +269,7 @@ def add_image_chibi(part, count, mode_ai_wait="slow", chibi_detail=""):
         file_name="initial_generated_chibi.png",
         mode_ai_wait=mode_ai_wait,
         prompt_values={"image_detail": image_detail},
+        save_image_after_last_prompt=True,
     )
 
 

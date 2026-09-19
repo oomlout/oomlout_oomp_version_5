@@ -2,13 +2,13 @@
 
 The theme is: **{image_detail}**
 
-Apply the house style you just wrote to this theme. If the theme above already arrives wrapped in wording like "a fun chibi CGI inspired picture of…", treat only the subject inside it as the theme — the chibi CGI part is already covered by your style guide. Everything you need is now in hand, so do not ask questions, just work.
+Apply the house style you just wrote to this theme. If the theme above already arrives wrapped in wording like "a fun chibi CGI inspired picture of…", treat only the subject inside it as the theme — the chibi CGI part is already covered by your style guide. Everything you need is now in hand. Generate the image during this step without asking questions or waiting for another message.
 
 ---
 
-## Part A — exploration
+## Part A — private exploration
 
-**Budget: about 450 words, 600 hard ceiling.** Push past the theme's first obvious reading, but do it briskly. No preamble, no restating the theme back at me.
+Work through these choices privately before calling the image generation tool. Do not send the exploration as a text response. Push past the theme's first obvious reading, but do it briskly.
 
 - **Angles:** exactly four character interpretations, **one or two sentences each**. Include at least one that anthropomorphises an object or concept from the theme rather than reaching for the obvious animal, and at least one built on a small joke or a story beat. Then name your pick in a single sentence saying why it beats the other three — no full comparison table.
 - **The chosen character:** one short paragraph fixing proportions, face and expression, pose and gesture, costume or markings, and the one or two props that earn their place. Give it a personality in a few words, not a description of a shape.
@@ -17,11 +17,11 @@ Apply the house style you just wrote to this theme. If the theme above already a
 
 Skip anything not on that list: no tradeoff essays, no runner-up post-mortems, no notes on your own process.
 
-## Part B — the final prompt
+## Part B — generate the image now
 
-End your response with the final image-generation prompt for the chosen character, and nothing after it.
+Write the final image-generation prompt for the chosen character and pass it directly to the image generation tool in this step. Invoke the tool exactly once. Do not return a text-only prompt, a fenced code block, or a plan to generate later. Finish with the generated image so it can be saved immediately from the generation window.
 
-Format it as a single fenced code block labelled `FINAL IMAGE PROMPT`, so it can be copied cleanly. Use the labelled-block template from step 1 in order: Concept → Character → Details → Style → Camera → Lighting → Background → Constraints last.
+Use the labelled-block template from step 1 in order: Concept → Character → Details → Style → Camera → Lighting → Background → Constraints last.
 
 **Length: 180–250 words.** Long enough to carry the full spec, short enough that no single instruction gets diluted. If you are over, cut adjectives and repeated style words before you cut any material, lighting, or framing rule.
 
@@ -34,4 +34,4 @@ Hard requirements for that prompt:
 - It specifies a clean studio background with nothing competing for attention.
 - The exclusion list comes **last**, after every positive descriptor, and includes no text and no watermark.
 - It is self-contained: someone pasting it cold, with no memory of this conversation, gets the same image. No "as described above", no "the character from earlier".
-- One prompt only. No variants, no alternates, no commentary after the code block.
+- One image-generation call only. No variants, no alternates, and no extra text response after the image.

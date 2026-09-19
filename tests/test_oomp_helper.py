@@ -77,6 +77,49 @@ class PromptHelperTests(unittest.TestCase):
         self.assertEqual([call["count"] for call in calls], [3, 4, 5])
         self.assertTrue(all(call["image_detail"] == "star theme" for call in calls))
 
+    def test_step_two_image_flows_save_without_an_extra_query(self):
+        image_flows = [
+            (oomp_helper.add_image_chibi_cgi_fun, "initial_generated_image_chibi_cgi_fun.png"),
+            (oomp_helper.add_image_laser_cut_logo_full, "initial_generated_image_laser_cut_logo_full.png"),
+            (oomp_helper.add_image_chibi, "initial_generated_chibi.png"),
+            (oomp_helper.add_icon, "initial_generated_icon.png"),
+        ]
+        for wrapper, file_name in image_flows:
+            with self.subTest(wrapper=wrapper.__name__):
+                with patch.object(
+                    oomp_helper.oomlout_roboclick,
+                    "ai_query_from_prompts",
+                    return_value=6,
+                ) as query_mock:
+                    result = wrapper({"name_space": "fox"}, 5)
+
+                self.assertEqual(result, 6)
+                prompts = query_mock.call_args.kwargs["prompts"]
+                self.assertEqual(len(prompts), 3)
+                self.assertIn("Invoke the tool exactly once", prompts[1]["text"])
+                self.assertEqual(
+                    prompts[2],
+                    {"file_name_image": file_name},
+                )
+                self.assertNotIn("file_name_image", prompts[1])
+
+    def test_other_image_flows_keep_the_generation_query(self):
+        with patch.object(
+            oomp_helper.oomlout_roboclick,
+            "ai_query_from_prompts",
+            return_value=6,
+        ) as query_mock:
+            oomp_helper.add_image_birthday_banner_frame_vector(
+                {"name_space": "test"}, 5, image_detail="fox"
+            )
+
+        prompts = query_mock.call_args.kwargs["prompts"]
+        self.assertEqual(prompts[-1]["text"], oomp_helper.IMAGE_GENERATE_PROMPT)
+        self.assertEqual(
+            prompts[-1]["file_name_image"],
+            "initial_generated_image_birthday_banner_frame_vector.png",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
