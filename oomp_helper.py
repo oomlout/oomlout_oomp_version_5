@@ -104,6 +104,10 @@ def add_image_from_prompt_directory(
     #get the striong of the path name
     prompt_folder_path_str = str(prompt_folder_path)
     prompts = _load_prompt_directory(prompt_folder_path_str, prompt_data)
+    # These step-2 prompts generate their images themselves, including when this
+    # function is called directly instead of through a named wrapper.
+    if prompt_folder_path.name in IMAGE_GENERATE_IN_STEP_2_FOLDERS:
+        save_image_after_last_prompt = True
     if save_image_after_last_prompt:
         # ai_query_from_prompts turns this promptless entry into a save action.
         prompts.append({"file_name_image": file_name})
@@ -136,7 +140,7 @@ def _add_default_prompt_image(part, count, prompt_folder, mode_ai_wait="slow", i
         file_name=_prompt_file_name(prompt_folder),
         mode_ai_wait=mode_ai_wait,
         prompt_values={"image_detail": _resolve_prompt_image_detail(part, image_detail)},
-        save_image_after_last_prompt=prompt_folder in IMAGE_GENERATE_IN_STEP_2_FOLDERS,
+        save_image_after_last_prompt=Path(prompt_folder).name in IMAGE_GENERATE_IN_STEP_2_FOLDERS,
     )
 
 
@@ -249,7 +253,7 @@ def add_icon(part, count, mode_ai_wait="slow", icon_detail=""):
         action_name=action_name,
         count=count,
         prompt_folder="image_laser_cut_logo_full",
-        file_name="initial_generated_icon.png",
+        file_name="initial_generated.png",
         mode_ai_wait=mode_ai_wait,
         prompt_values={"image_detail": image_detail},
         save_image_after_last_prompt=True,

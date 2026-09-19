@@ -82,7 +82,7 @@ class PromptHelperTests(unittest.TestCase):
             (oomp_helper.add_image_chibi_cgi_fun, "initial_generated_image_chibi_cgi_fun.png"),
             (oomp_helper.add_image_laser_cut_logo_full, "initial_generated_image_laser_cut_logo_full.png"),
             (oomp_helper.add_image_chibi, "initial_generated_chibi.png"),
-            (oomp_helper.add_icon, "initial_generated_icon.png"),
+            (oomp_helper.add_icon, "initial_generated.png"),
         ]
         for wrapper, file_name in image_flows:
             with self.subTest(wrapper=wrapper.__name__):
@@ -119,6 +119,24 @@ class PromptHelperTests(unittest.TestCase):
             prompts[-1]["file_name_image"],
             "initial_generated_image_birthday_banner_frame_vector.png",
         )
+
+    def test_direct_laser_prompt_call_cannot_append_generation_instruction(self):
+        with patch.object(
+            oomp_helper.oomlout_roboclick,
+            "ai_query_from_prompts",
+            return_value=6,
+        ) as query_mock:
+            oomp_helper.add_image_from_prompt_directory(
+                part={"name_space": "fox"},
+                count=5,
+                prompt_folder=oomp_helper.PROMPT_ROOT / "image_laser_cut_logo_full",
+                file_name="logo.png",
+                save_image_after_last_prompt=False,
+            )
+
+        prompts = query_mock.call_args.kwargs["prompts"]
+        self.assertEqual(prompts[-1], {"file_name_image": "logo.png"})
+        self.assertEqual(len(prompts), 3)
 
 
 if __name__ == "__main__":
