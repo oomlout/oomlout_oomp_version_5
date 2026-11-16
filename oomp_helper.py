@@ -63,7 +63,7 @@ def _load_prompt_directory(prompt_folder, prompt_values=None):
 
         prompt_text = prompt_file.read_text(encoding="utf-8")
         prompt_text = prompt_text.format_map(_SafePromptDict(prompt_values))
-        prompts.append({"text": prompt_text, "delay": "240"})
+        prompts.append({"text": prompt_text, "delay": "180"})
 
     if not prompts:        
         raise FileNotFoundError(f"No prompt files found in {prompt_directory}")
@@ -293,7 +293,7 @@ def add_image(part, folder_project, files_to_trace, mode_ai_wait, count):
     prompts.append(
         {
             "folder_name": f"roboclick\\{folder_project}\\prompt_three_dimension_letter_two_line_1",
-            "delay": "240",
+            "delay": "180",
         }
     )
 
@@ -304,7 +304,7 @@ def add_image(part, folder_project, files_to_trace, mode_ai_wait, count):
             {
                 "file_name_image": file_name,
                 "text": "Generate the image take all the time you need",
-                "delay": "240",
+                "delay": "180",
             }
         )
         files_to_trace.append(file_name)
@@ -315,12 +315,12 @@ def add_image(part, folder_project, files_to_trace, mode_ai_wait, count):
 
 def add_prompt_image(part, folder_project, prompt_folder, file_name, files_to_trace, mode_ai_wait, count):
     prompts = []
-    prompts.append({"folder_name": f"roboclick\\{folder_project}\\{prompt_folder}", "delay": "240"})
+    prompts.append({"folder_name": f"roboclick\\{folder_project}\\{prompt_folder}", "delay": "180"})
     prompts.append(
         {
             "file_name_image": file_name,
             "text": "Generate the image take all the time you need",
-            "delay": "240",
+            "delay": "180",
         }
     )
     if files_to_trace != "":
@@ -352,13 +352,13 @@ def add_cover_background(part, folder_project, files_to_trace, mode_ai_wait, cou
         f'{part.get("value_2", "")}, and {part.get("value_3", "")}'
     )
     prompts = []
-    prompts.append({"folder_name": f"roboclick\\{folder_project}\\prompt_image_background_1", "delay": "240"})
+    prompts.append({"folder_name": f"roboclick\\{folder_project}\\prompt_image_background_1", "delay": "180"})
     file_name = "image_cover_background.png"
     prompts.append(
         {
             "file_name_image": file_name,
             "text": "Generate the image take all the time you need",
-            "delay": "240",
+            "delay": "180",
         }
     )
     files_to_trace.append(file_name)
@@ -388,7 +388,7 @@ def make_card(part, folder_project, count):
 
 def add_research(part, folder_project, mode_ai_wait, count):
     prompts = []
-    prompts.append({"folder_name": f"roboclick\\{folder_project}\\research_day_of_the_year", "delay": "240"})
+    prompts.append({"folder_name": f"roboclick\\{folder_project}\\research_day_of_the_year", "delay": "180"})
     file_destination_yaml = "research.yaml"
     action_name = "research_day_of_the_year"
     part2 = copy.deepcopy(part)

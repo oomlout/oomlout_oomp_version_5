@@ -104,6 +104,9 @@ def create_parts_readme_old():
 
 
 def add_parts(parts,**kwargs):
+    # Opt-in completion barrier for callers that immediately consume YAML.
+    # Existing callers retain the historical asynchronous behavior.
+    wait_for_completion = kwargs.pop("wait_for_completion", False)
     parts_full_list = []
     #expand the parts list into parts_processed, make this a list of permutations of the part using itertools
     import itertools
@@ -132,6 +135,13 @@ def add_parts(parts,**kwargs):
             part_full.update(kwargs)  
             parts_full_list.append(part_full)
             #add_part(classification=part["classification"], type=part["type"], size=part["size"], color=part["color"], description_main=part["description_main"], description_extra=part["description_extra"], manufacturer=part["manufacturer"], part_number=part["part_number"], not_main_elements=not_main_elements, **kwargs)
+
+    if wait_for_completion:
+        for part in parts_full_list:
+            result = add_part(**part)
+            if result is None:
+                raise RuntimeError("OOMP add_part did not complete materialization")
+        return
 
     #go through each item in parts_full_list and run it through add_part but use threading on 6 cores
     import threading

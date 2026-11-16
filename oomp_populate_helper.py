@@ -69,8 +69,13 @@ def write_extras(extras, default_input={}):
         folder_path = os.path.join("parts_source", oomp_id)
         os.makedirs(folder_path, exist_ok=True)
         yaml_path = os.path.join(folder_path, "working.yaml")
-        with open(yaml_path, "w", encoding="utf-8") as f:
+        # write via temp + atomic replace: concurrent builds (batch driver)
+        # regenerate the same files and a plain truncating write would tear
+        # the YAML for any reader that loads it mid-write
+        temp_path = yaml_path + ".tmp"
+        with open(temp_path, "w", encoding="utf-8") as f:
             yaml.dump(details, f, allow_unicode=True)
+        os.replace(temp_path, yaml_path)
         filenames = ["datasheet.pdf", "image.jpg", "diagram.af"]
         oomp_id = build_oomp_id(details)
         for filename in filenames:
