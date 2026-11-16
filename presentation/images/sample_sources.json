@@ -1,0 +1,44 @@
+[
+  {
+    "image": "presentation/images/sample-mechanical.png",
+    "repository": "oomp_mechanical_version_5",
+    "source": "parts/mechanical_coupler_flange_name_10_mm_bore/three_d_model/render_high.png",
+    "source_sha256": "3dee720d5b48be2079db0cd40bc32467ddec383d92a26020faf5131350ef544f",
+    "source_size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      512,
+      512
+    ]
+  },
+  {
+    "image": "presentation/images/sample-extension-lead-holder.png",
+    "repository": "oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5",
+    "source": "parts/oobb_holder_5_width_6_height_21_depth_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068/3dpr.png",
+    "source_sha256": "6479220ea1022cb6b4a3f989631a04cff0a878aec9601fcf560f0f1cf9b628cc",
+    "source_size": [
+      512,
+      512
+    ],
+    "preview_size": [
+      512,
+      512
+    ]
+  },
+  {
+    "image": "presentation/images/sample-breakout.png",
+    "repository": "oomp_electronic_breakout_version_5",
+    "source": "parts/electronic_breakout_input_remote_control_servo_tester_18_mm_width_14_mm_height_purple_pcb_aliexpress/3dpr_presentation.png",
+    "source_sha256": "bceb22b94425cd0ff9211cae10110e0edf97f6d5c4b274cd12e9d62a84de4c31",
+    "source_size": [
+      1600,
+      1000
+    ],
+    "preview_size": [
+      512,
+      320
+    ]
+  }
+]

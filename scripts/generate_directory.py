@@ -1,5 +1,6 @@
 """Build the public directory from the verified repository inventory."""
 import json
+from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,6 +24,11 @@ DESCRIPTIONS = {
 def generate():
     inventory = json.loads((ROOT / 'data/repositories.json').read_text(encoding='utf-8'))
     rows = inventory['repositories']
+    samples = json.loads((ROOT / 'data/directory_samples.json').read_text(encoding='utf-8'))
+    by_name = {row['name']: row for row in rows}
+    for row in rows:
+        if row.get('parent') and (row['parent'] not in by_name or by_name[row['parent']].get('parent')):
+            raise ValueError(f'Variant must name a main repository: {row["name"]}')
     gallery = json.loads((ROOT / 'data/directory_gallery.json').read_text(encoding='utf-8'))['parts']
     gallery_names = []
     gallery_images = []
@@ -39,10 +45,22 @@ def generate():
              'Full-detail catalogue renders, reduced for this page. The two M3 screws are 10 mm long; the set screw is M6 × 25 mm with a fully threaded hex head. Click a name for its part record or an image for a larger preview. Illustrations are not to a common scale.', '',
              '## Details', '', 'Choose a full catalogue for source data and available assets, the visual browser for quick discovery, or a YAML export for lightweight data use. Files and completeness vary by repository.', '',
              f'Repositories checked on {inventory["checked"]}. The list includes GitHub projects absent from this computer and preserves their published names.', '']
-    lines += ['Repositories are sorted by their full repository name/code. Lightweight `_only_yaml` exports sit beside their source catalogue.', '']
-    for row in sorted(rows, key=lambda r: r['name'].casefold()):
+    lines += ['Main repositories are sorted by their full repository name/code. Alternative browsers and YAML-only exports are linked beneath their main repository.', '',
+              '| Repository | What it provides | Sample |', '| --- | --- | --- |']
+    for row in sorted((row for row in rows if not row.get('parent')), key=lambda r: r['name'].casefold()):
         label, description = DESCRIPTIONS[row['name']]
-        lines += [f'- [{row["name"]}]({row["url"]}) — **{label}.** {description}', '']
+        repository = f'[{row["name"]}]({row["url"]})'
+        variants = sorted((variant for variant in rows if variant.get('parent') == row['name']), key=lambda r: r['variant_label'])
+        if variants:
+            repository += '<br><sub>Variants: ' + ' · '.join(f'[{v["variant_label"]}]({v["url"]})' for v in variants) + '</sub>'
+        sample = samples.get(row['name'])
+        if sample:
+            picture = f'<img src="{escape(sample["image"], quote=True)}" alt="{escape(sample["label"], quote=True)}" width="140">'
+            preview = f'[{picture}]({sample["target"]})<br>{sample["label"]}'
+        else:
+            preview = 'No sample published yet.'
+        lines.append(f'| {repository} | **{label}.** {description} | {preview} |')
+    lines.append('')
     lines += ['## Using the catalogues', '',
               '1. Open the repository for the component family you need.',
               '2. Follow its catalogue or `parts/` folders to the exact variant.',

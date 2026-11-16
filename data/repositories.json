@@ -42,7 +42,9 @@
       "name": "oomp_electronic_verison_5_pretty",
       "url": "https://github.com/oomlout/oomp_electronic_verison_5_pretty",
       "branch": "main",
-      "github_size_kb": 55530
+      "github_size_kb": 55530,
+      "parent": "oomp_electronic_version_5",
+      "variant_label": "Visual browser"
     },
     {
       "name": "oomp_electronic_project_version_5",
@@ -60,19 +62,25 @@
       "name": "oomp_electronic_version_5_only_yaml",
       "url": "https://github.com/oomlout/oomp_electronic_version_5_only_yaml",
       "branch": "main",
-      "github_size_kb": 0
+      "github_size_kb": 0,
+      "parent": "oomp_electronic_version_5",
+      "variant_label": "YAML only"
     },
     {
       "name": "oomp_hardware_screw_version_5_only_yaml",
       "url": "https://github.com/oomlout/oomp_hardware_screw_version_5_only_yaml",
       "branch": "main",
-      "github_size_kb": 36815
+      "github_size_kb": 36815,
+      "parent": "oomp_hardware_screw_version_5",
+      "variant_label": "YAML only"
     },
     {
       "name": "oomp_hardware_bolt_version_5_only_yaml",
       "url": "https://github.com/oomlout/oomp_hardware_bolt_version_5_only_yaml",
       "branch": "main",
-      "github_size_kb": 9812
+      "github_size_kb": 9812,
+      "parent": "oomp_hardware_bolt_version_5",
+      "variant_label": "YAML only"
     },
     {
       "name": "oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5",

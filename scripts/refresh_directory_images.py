@@ -1,4 +1,4 @@
-"""Create small previews from full-detail hardware renders, reading sources only.
+"""Create small gallery and table previews, reading allowed local sources only.
 
 Requires Pillow. Usage: python scripts/refresh_directory_images.py --repositories C:/gh
 """
@@ -11,6 +11,8 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 ALLOWED = {'oomp_hardware_screw_version_5', 'oomp_hardware_bolt_version_5'}
+SAMPLE_ALLOWED = ALLOWED | {'oomp_mechanical_version_5', 'oomp_electronic_breakout_version_5',
+                           'oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5'}
 
 
 def refresh(repositories):
@@ -30,6 +32,24 @@ def refresh(repositories):
                              'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
                              'source_size': list(original.size), 'preview_size': list(preview.size)})
     (ROOT / 'presentation/images/gallery_sources.json').write_text(json.dumps(evidence, indent=2) + '\n', encoding='utf-8')
+    samples = json.loads((ROOT / 'data/directory_samples.json').read_text(encoding='utf-8'))
+    sample_evidence = []
+    for repository, item in samples.items():
+        if 'source' not in item:
+            continue  # Reuse existing gallery images or reference published remote images.
+        if repository not in SAMPLE_ALLOWED:
+            raise ValueError('This repository is not an allowed local image source')
+        source = repositories / repository / item['source']
+        destination = ROOT / item['image']
+        with Image.open(source) as original:
+            preview = original.convert('RGB')
+            preview.thumbnail((512, 512), Image.Resampling.LANCZOS)
+            preview.save(destination, optimize=True)
+            sample_evidence.append({'image': item['image'], 'repository': repository,
+                                    'source': item['source'],
+                                    'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
+                                    'source_size': list(original.size), 'preview_size': list(preview.size)})
+    (ROOT / 'presentation/images/sample_sources.json').write_text(json.dumps(sample_evidence, indent=2) + '\n', encoding='utf-8')
 
 
 if __name__ == '__main__':

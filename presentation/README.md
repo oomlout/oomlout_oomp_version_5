@@ -8,12 +8,18 @@ Read [the style contract](STYLE.md), [the implementation and rollout guide](CATA
 
 Run `python scripts/generate_directory.py` in the base repository. The directory source is `data/repositories.json`; GitHub discovery is a deliberate maintenance step, not a network dependency of rendering.
 
-The base directory uses repository name/code as its primary order and link label.
-Its five hardware examples are configured in `data/directory_gallery.json`.
+The base directory table uses repository name/code as its primary order and link
+label. Variant entries in `data/repositories.json` have `parent` and
+`variant_label` fields and appear only as sublinks under their parent row.
+The Sample column is configured in `data/directory_samples.json`; the five-image
+hardware gallery remains configured in `data/directory_gallery.json`.
 Run `python scripts/refresh_directory_images.py` to rebuild small previews from
-the full-detail hardware renders; this optional image step requires Pillow and
-reads only the bolt and screw repositories. Normal README generation uses the
-checked-in previews and does not read other checkouts.
+the full-detail hardware renders and the additional local table samples. This
+optional image step requires Pillow and reads only the explicitly allowed bolt,
+screw, mechanical, breakout and extension-lead source repositories. Electronics
+and electronic projects use small published image URLs from their own READMEs;
+their local files are never read or modified by this image step. Normal README
+generation uses the checked-in configuration and does not read other checkouts.
 
 **Ownership boundary:** `oomp_electronic_version_5` and
 `oomp_electronic_project_version_5` are maintained elsewhere. Do not modify or

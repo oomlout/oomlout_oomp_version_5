@@ -1,0 +1,45 @@
+{
+  "oomlout_oomp_version_5": {
+    "image": "presentation/images/m3-nut.png",
+    "label": "Example part record",
+    "target": "https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_nut_m3/"
+  },
+  "oomp_mechanical_version_5": {
+    "image": "presentation/images/sample-mechanical.png",
+    "label": "10 mm flange coupler",
+    "target": "https://github.com/oomlout/oomp_mechanical_version_5/tree/main/parts/mechanical_coupler_flange_name_10_mm_bore/",
+    "source": "parts/mechanical_coupler_flange_name_10_mm_bore/three_d_model/render_high.png"
+  },
+  "oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5": {
+    "image": "presentation/images/sample-extension-lead-holder.png",
+    "label": "Extension-lead holder",
+    "target": "https://github.com/oomlout/oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5/tree/main/parts/oobb_holder_5_width_6_height_21_depth_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068/",
+    "source": "parts/oobb_holder_5_width_6_height_21_depth_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068/3dpr.png"
+  },
+  "oomp_electronic_breakout_version_5": {
+    "image": "presentation/images/sample-breakout.png",
+    "label": "Servo-tester mounting plate",
+    "target": "https://github.com/oomlout/oomp_electronic_breakout_version_5/tree/main/parts/electronic_breakout_input_remote_control_servo_tester_18_mm_width_14_mm_height_purple_pcb_aliexpress/",
+    "source": "parts/electronic_breakout_input_remote_control_servo_tester_18_mm_width_14_mm_height_purple_pcb_aliexpress/3dpr_presentation.png"
+  },
+  "oomp_electronic_version_5": {
+    "image": "https://raw.githubusercontent.com/oomlout/oomp_electronic_version_5/main/parts/electronic_ic_amplifier_operational_single_rail_to_rail_input_output_sot_23_5_gainsil_lmv321_tr/data/working_svg_square_pins_300.png",
+    "label": "LMV321-TR pinout",
+    "target": "https://github.com/oomlout/oomp_electronic_version_5/blob/main/parts/electronic_ic_amplifier_operational_single_rail_to_rail_input_output_sot_23_5_gainsil_lmv321_tr/README.md"
+  },
+  "oomp_electronic_project_version_5": {
+    "image": "https://raw.githubusercontent.com/oomlout/oomp_electronic_project_version_5/main/parts/oomp_project_github_adafruit_adafruit_16_channel_pwm_servo_shield_adafruit_pwm_servo_shield_current/data/generated_data/src/board_300.png",
+    "label": "Adafruit PWM Servo Shield",
+    "target": "https://github.com/oomlout/oomp_electronic_project_version_5/blob/main/parts/oomp_project_github_adafruit_adafruit_16_channel_pwm_servo_shield_adafruit_pwm_servo_shield_current/README.md"
+  },
+  "oomp_hardware_bolt_version_5": {
+    "image": "presentation/images/m6x25-set-screw.png",
+    "label": "M6 × 25 mm set screw",
+    "target": "https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_set_screw_m6_25_mm_length/"
+  },
+  "oomp_hardware_screw_version_5": {
+    "image": "presentation/images/m3-socket-cap.png",
+    "label": "M3 × 10 mm socket cap",
+    "target": "https://github.com/oomlout/oomp_hardware_screw_version_5/tree/main/parts/hardware_screw_socket_cap_hex_head_black_m3_diameter_10_mm_length/"
+  }
+}

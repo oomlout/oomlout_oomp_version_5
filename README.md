@@ -16,33 +16,19 @@ Choose a full catalogue for source data and available assets, the visual browser
 
 Repositories checked on 2026-11-16. The list includes GitHub projects absent from this computer and preserves their published names.
 
-Repositories are sorted by their full repository name/code. Lightweight `_only_yaml` exports sit beside their source catalogue.
+Main repositories are sorted by their full repository name/code. Alternative browsers and YAML-only exports are linked beneath their main repository.
 
-- [oomlout_oomp_version_5](https://github.com/oomlout/oomlout_oomp_version_5) — **OOMP core.** Shared identifiers, metadata and documentation utilities; this directory.
-
-- [oomp_bearing_version_5](https://github.com/oomlout/oomp_bearing_version_5) — **Bearings.** Bearing catalogue project; GitHub reports 0 KiB and no root README was available at audit time.
-
-- [oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5](https://github.com/oomlout/oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5) — **UK six-outlet extension lead.** Pro Elec 2068 extension-lead records and associated assets.
-
-- [oomp_electronic_breakout_version_5](https://github.com/oomlout/oomp_electronic_breakout_version_5) — **Electronic breakouts.** Breakout boards, pin layouts and mounting geometry.
-
-- [oomp_electronic_project_version_5](https://github.com/oomlout/oomp_electronic_project_version_5) — **Electronic projects.** Board projects, component matching, interactive explorers and production outputs.
-
-- [oomp_electronic_verison_5_pretty](https://github.com/oomlout/oomp_electronic_verison_5_pretty) — **Electronics visual browser.** A compact, illustrated electronics catalogue. The published name spells version as verison.
-
-- [oomp_electronic_version_5](https://github.com/oomlout/oomp_electronic_version_5) — **Electronic components.** Component records, package drawings, KiCad assets and source metadata.
-
-- [oomp_electronic_version_5_only_yaml](https://github.com/oomlout/oomp_electronic_version_5_only_yaml) — **Electronics YAML export.** Lightweight metadata and thumbnails; GitHub reports 0 KiB and no root README was available at audit time.
-
-- [oomp_hardware_bolt_version_5](https://github.com/oomlout/oomp_hardware_bolt_version_5) — **Bolts, nuts and washers.** Hardware variants, dimensional drawings, models and supplier records.
-
-- [oomp_hardware_bolt_version_5_only_yaml](https://github.com/oomlout/oomp_hardware_bolt_version_5_only_yaml) — **Bolts YAML export.** Lightweight hardware metadata and thumbnails.
-
-- [oomp_hardware_screw_version_5](https://github.com/oomlout/oomp_hardware_screw_version_5) — **Screws.** Screw families and sizes, drawings and generated models.
-
-- [oomp_hardware_screw_version_5_only_yaml](https://github.com/oomlout/oomp_hardware_screw_version_5_only_yaml) — **Screws YAML export.** Lightweight screw metadata and thumbnails.
-
-- [oomp_mechanical_version_5](https://github.com/oomlout/oomp_mechanical_version_5) — **Mechanical parts.** Shaft couplers, magnets and timing pulleys with models and drawings.
+| Repository | What it provides | Sample |
+| --- | --- | --- |
+| [oomlout_oomp_version_5](https://github.com/oomlout/oomlout_oomp_version_5) | **OOMP core.** Shared identifiers, metadata and documentation utilities; this directory. | [<img src="presentation/images/m3-nut.png" alt="Example part record" width="140">](https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_nut_m3/)<br>Example part record |
+| [oomp_bearing_version_5](https://github.com/oomlout/oomp_bearing_version_5) | **Bearings.** Bearing catalogue project; GitHub reports 0 KiB and no root README was available at audit time. | No sample published yet. |
+| [oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5](https://github.com/oomlout/oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5) | **UK six-outlet extension lead.** Pro Elec 2068 extension-lead records and associated assets. | [<img src="presentation/images/sample-extension-lead-holder.png" alt="Extension-lead holder" width="140">](https://github.com/oomlout/oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5/tree/main/parts/oobb_holder_5_width_6_height_21_depth_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068/)<br>Extension-lead holder |
+| [oomp_electronic_breakout_version_5](https://github.com/oomlout/oomp_electronic_breakout_version_5) | **Electronic breakouts.** Breakout boards, pin layouts and mounting geometry. | [<img src="presentation/images/sample-breakout.png" alt="Servo-tester mounting plate" width="140">](https://github.com/oomlout/oomp_electronic_breakout_version_5/tree/main/parts/electronic_breakout_input_remote_control_servo_tester_18_mm_width_14_mm_height_purple_pcb_aliexpress/)<br>Servo-tester mounting plate |
+| [oomp_electronic_project_version_5](https://github.com/oomlout/oomp_electronic_project_version_5) | **Electronic projects.** Board projects, component matching, interactive explorers and production outputs. | [<img src="https://raw.githubusercontent.com/oomlout/oomp_electronic_project_version_5/main/parts/oomp_project_github_adafruit_adafruit_16_channel_pwm_servo_shield_adafruit_pwm_servo_shield_current/data/generated_data/src/board_300.png" alt="Adafruit PWM Servo Shield" width="140">](https://github.com/oomlout/oomp_electronic_project_version_5/blob/main/parts/oomp_project_github_adafruit_adafruit_16_channel_pwm_servo_shield_adafruit_pwm_servo_shield_current/README.md)<br>Adafruit PWM Servo Shield |
+| [oomp_electronic_version_5](https://github.com/oomlout/oomp_electronic_version_5)<br><sub>Variants: [Visual browser](https://github.com/oomlout/oomp_electronic_verison_5_pretty) · [YAML only](https://github.com/oomlout/oomp_electronic_version_5_only_yaml)</sub> | **Electronic components.** Component records, package drawings, KiCad assets and source metadata. | [<img src="https://raw.githubusercontent.com/oomlout/oomp_electronic_version_5/main/parts/electronic_ic_amplifier_operational_single_rail_to_rail_input_output_sot_23_5_gainsil_lmv321_tr/data/working_svg_square_pins_300.png" alt="LMV321-TR pinout" width="140">](https://github.com/oomlout/oomp_electronic_version_5/blob/main/parts/electronic_ic_amplifier_operational_single_rail_to_rail_input_output_sot_23_5_gainsil_lmv321_tr/README.md)<br>LMV321-TR pinout |
+| [oomp_hardware_bolt_version_5](https://github.com/oomlout/oomp_hardware_bolt_version_5)<br><sub>Variants: [YAML only](https://github.com/oomlout/oomp_hardware_bolt_version_5_only_yaml)</sub> | **Bolts, nuts and washers.** Hardware variants, dimensional drawings, models and supplier records. | [<img src="presentation/images/m6x25-set-screw.png" alt="M6 × 25 mm set screw" width="140">](https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_set_screw_m6_25_mm_length/)<br>M6 × 25 mm set screw |
+| [oomp_hardware_screw_version_5](https://github.com/oomlout/oomp_hardware_screw_version_5)<br><sub>Variants: [YAML only](https://github.com/oomlout/oomp_hardware_screw_version_5_only_yaml)</sub> | **Screws.** Screw families and sizes, drawings and generated models. | [<img src="presentation/images/m3-socket-cap.png" alt="M3 × 10 mm socket cap" width="140">](https://github.com/oomlout/oomp_hardware_screw_version_5/tree/main/parts/hardware_screw_socket_cap_hex_head_black_m3_diameter_10_mm_length/)<br>M3 × 10 mm socket cap |
+| [oomp_mechanical_version_5](https://github.com/oomlout/oomp_mechanical_version_5) | **Mechanical parts.** Shaft couplers, magnets and timing pulleys with models and drawings. | [<img src="presentation/images/sample-mechanical.png" alt="10 mm flange coupler" width="140">](https://github.com/oomlout/oomp_mechanical_version_5/tree/main/parts/mechanical_coupler_flange_name_10_mm_bore/)<br>10 mm flange coupler |
 
 ## Using the catalogues
 
