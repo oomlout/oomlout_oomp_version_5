@@ -1,0 +1,84 @@
+{
+  "checked": "2026-11-16",
+  "scope": "All 190 public oomlout repositories matching oomp in:name, including the verison spelling; version 5 subset.",
+  "repositories": [
+    {
+      "name": "oomp_bearing_version_5",
+      "url": "https://github.com/oomlout/oomp_bearing_version_5",
+      "branch": "main",
+      "github_size_kb": 0
+    },
+    {
+      "name": "oomp_mechanical_version_5",
+      "url": "https://github.com/oomlout/oomp_mechanical_version_5",
+      "branch": "main",
+      "github_size_kb": 1589511
+    },
+    {
+      "name": "oomp_electronic_version_5",
+      "url": "https://github.com/oomlout/oomp_electronic_version_5",
+      "branch": "main",
+      "github_size_kb": 1693165
+    },
+    {
+      "name": "oomlout_oomp_version_5",
+      "url": "https://github.com/oomlout/oomlout_oomp_version_5",
+      "branch": "main",
+      "github_size_kb": 138
+    },
+    {
+      "name": "oomp_electronic_breakout_version_5",
+      "url": "https://github.com/oomlout/oomp_electronic_breakout_version_5",
+      "branch": "main",
+      "github_size_kb": 66106
+    },
+    {
+      "name": "oomp_hardware_screw_version_5",
+      "url": "https://github.com/oomlout/oomp_hardware_screw_version_5",
+      "branch": "main",
+      "github_size_kb": 17919651
+    },
+    {
+      "name": "oomp_electronic_verison_5_pretty",
+      "url": "https://github.com/oomlout/oomp_electronic_verison_5_pretty",
+      "branch": "main",
+      "github_size_kb": 55530
+    },
+    {
+      "name": "oomp_electronic_project_version_5",
+      "url": "https://github.com/oomlout/oomp_electronic_project_version_5",
+      "branch": "main",
+      "github_size_kb": 2449646
+    },
+    {
+      "name": "oomp_hardware_bolt_version_5",
+      "url": "https://github.com/oomlout/oomp_hardware_bolt_version_5",
+      "branch": "main",
+      "github_size_kb": 3116394
+    },
+    {
+      "name": "oomp_electronic_version_5_only_yaml",
+      "url": "https://github.com/oomlout/oomp_electronic_version_5_only_yaml",
+      "branch": "main",
+      "github_size_kb": 0
+    },
+    {
+      "name": "oomp_hardware_screw_version_5_only_yaml",
+      "url": "https://github.com/oomlout/oomp_hardware_screw_version_5_only_yaml",
+      "branch": "main",
+      "github_size_kb": 36815
+    },
+    {
+      "name": "oomp_hardware_bolt_version_5_only_yaml",
+      "url": "https://github.com/oomlout/oomp_hardware_bolt_version_5_only_yaml",
+      "branch": "main",
+      "github_size_kb": 9812
+    },
+    {
+      "name": "oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5",
+      "url": "https://github.com/oomlout/oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5",
+      "branch": "main",
+      "github_size_kb": 1673
+    }
+  ]
+}

@@ -1,74 +1,51 @@
-# oomp_version_5
+# OOMP version 5
 
-Python helpers for building and enriching OOMP-style part identifiers and related metadata.
+## Summary
 
-This repository contains the core utilities used here to:
+OOMP is a collection of reusable part records for electronics, hardware and mechanical projects. Each catalogue brings together part identifiers, structured metadata and available drawings, models or reference files. Start here to find the right repository, then choose an exact part in its catalogue.
 
-- build OOMP IDs from `taxonomy_1` to `taxonomy_15`
-- generate short aliases from hashes
-- derive BIP-39 word variants from MD5 values
-- write per-part YAML files
-- stage simple AI/template-driven asset generation workflows
+[![Catalogue render of an M4 bolt, 40 mm long](presentation/images/m4-bolt.png)](https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_bolt_m4_40_mm_length/)
 
-## What It Does
+Example: [M4 bolt, 40 mm long](https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_bolt_m4_40_mm_length/). This is a generated catalogue illustration, not a photograph or a dimensional specification.
 
-At a high level, the code in this repo helps turn structured part metadata into repeatable identifiers and companion fields.
+## Details
 
-Main capabilities supported by the checked-in code:
+Choose a full catalogue for source data and available assets, the visual browser for quick discovery, or a YAML export for lightweight data use. Files and completeness vary by repository.
 
-- `oomp.py` builds part IDs, names, hash fields, short codes, and per-part `working.yaml` files
-- `oomp_bip39.py` converts a 128-bit MD5 hex value into BIP-39-derived word variants
-- `oomp_word.py` maps a 6-character hash fragment to a 3-word OOMP mnemonic
-- `oomp_populate_helper.py` writes `parts_source/<oomp_id>/working.yaml` entries and can copy matching source assets when present
-- `oomp_helper.py` prepares automation steps for image/icon generation, tracing, research prompts, and Jinja-based output files via `oomlout_roboclick`
+Repositories checked on 2026-11-16. The list includes GitHub projects absent from this computer and preserves their published names.
 
-## Repo Layout
+### Part catalogues
 
-- [`oomp.py`](oomp.py)  
-  Core part-processing helpers. This is the main file to inspect first.
+| Repository | What it provides |
+| --- | --- |
+| [Bearings](https://github.com/oomlout/oomp_bearing_version_5) | Bearing catalogue project; GitHub reports 0 KiB and no root README was available at audit time. |
+| [UK six-outlet extension lead](https://github.com/oomlout/oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5) | Pro Elec 2068 extension-lead records and associated assets. |
+| [Electronic breakouts](https://github.com/oomlout/oomp_electronic_breakout_version_5) | Breakout boards, pin layouts and mounting geometry. |
+| [Electronic projects](https://github.com/oomlout/oomp_electronic_project_version_5) | Board projects, component matching, interactive explorers and production outputs. |
+| [Electronic components](https://github.com/oomlout/oomp_electronic_version_5) | Component records, package drawings, KiCad assets and source metadata. |
+| [Bolts, nuts and washers](https://github.com/oomlout/oomp_hardware_bolt_version_5) | Hardware variants, dimensional drawings, models and supplier records. |
+| [Screws](https://github.com/oomlout/oomp_hardware_screw_version_5) | Screw families and sizes, drawings and generated models. |
+| [Mechanical parts](https://github.com/oomlout/oomp_mechanical_version_5) | Shaft couplers, magnets and timing pulleys with models and drawings. |
 
-- [`oomp_bip39.py`](oomp_bip39.py)  
-  BIP-39 conversion utilities built from the bundled word list.
+### Browsers and lightweight exports
 
-- [`oomp_word.py`](oomp_word.py)  
-  Custom 3-word mnemonic lookup for 6 hex characters.
+| Repository | What it provides |
+| --- | --- |
+| [Electronics visual browser](https://github.com/oomlout/oomp_electronic_verison_5_pretty) | A compact, illustrated electronics catalogue. The published name spells version as verison. |
+| [Electronics YAML export](https://github.com/oomlout/oomp_electronic_version_5_only_yaml) | Lightweight metadata and thumbnails; GitHub reports 0 KiB and no root README was available at audit time. |
+| [Bolts YAML export](https://github.com/oomlout/oomp_hardware_bolt_version_5_only_yaml) | Lightweight hardware metadata and thumbnails. |
+| [Screws YAML export](https://github.com/oomlout/oomp_hardware_screw_version_5_only_yaml) | Lightweight screw metadata and thumbnails. |
 
-- [`oomp_populate_helper.py`](oomp_populate_helper.py)  
-  Helpers for writing populated part folders under `parts_source/`.
+### Shared tools
 
-- [`oomp_helper.py`](oomp_helper.py)  
-  Automation helpers for prompt-driven graphics, tracing, and Jinja output generation.
+| Repository | What it provides |
+| --- | --- |
+| [OOMP core](https://github.com/oomlout/oomlout_oomp_version_5) | Shared identifiers, metadata and documentation utilities; this directory. |
 
-- [`source/bip_39_wordlist.txt`](source/bip_39_wordlist.txt)  
-  Bundled source data for BIP-39 word generation.
+## Using the catalogues
 
-- [`data/oomp_repo_list.yaml`](data/oomp_repo_list.yaml)  
-  A checked-in related-repo list containing one OOMP repo URL.
+1. Open the repository for the component family you need.
+2. Follow its catalogue or `parts/` folders to the exact variant.
+3. Check the full OOMP ID and source metadata before using its available files. Model formats, drawings and supplier references vary by part.
 
-## Setup
-
-This repo is a plain Python workspace rather than a packaged library. 
-
-External Oomlout modules referenced by the code:
-
-
-- `oomlout_roboclick` from [`oomlout/oomlout_roboclick`](https://github.com/oomlout/oomlout_roboclick)
-
-Notes:
-
-- Functions in [`oomp.py`](oomp.py) also call `oomp_create_parts`, but that import is commented out in the current file. Those code paths appear to rely on another local or companion module not included here.
-- No lockfile or pinned versions are present, so dependency versions are not defined in this repo.
-
-
-Notes:
-
-- [`requirements.txt`](requirements.txt) only includes dependencies that can be supported directly from the checked-in imports here.
-- The Oomlout-specific modules are still listed separately because this repo does not define their package names or installation source.
-- `oomlout_roboclick` is sourced from [`oomlout/oomlout_roboclick`](https://github.com/oomlout/oomlout_roboclick), which contains the `oomlout_roboclick.py` module used by [`oomp_helper.py`](oomp_helper.py).
-
-
-## Related Repos
-
-- [`oomlout/oomlout_roboclick`](https://github.com/oomlout/oomlout_roboclick)  
-  Provides the `oomlout_roboclick` module imported by [`oomp_helper.py`](oomp_helper.py)
-
+For local setup and modifications, see the [generator guide](README_GENERATOR.md). Maintainers can use the [documentation standard and repository audit](presentation/README.md).
