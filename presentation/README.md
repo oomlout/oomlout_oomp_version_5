@@ -2,7 +2,7 @@
 
 OOMP documentation has three levels: the base directory helps readers choose a repository; a catalogue introduces its family; each canonical part page identifies one exact record. Setup and regeneration belong in `README_GENERATOR.md`.
 
-Read [the style contract](STYLE.md), [the implementation and rollout guide](CATALOGUE_REFRESH.md), and [the repository audit](REPOSITORIES.md).
+Read [the style contract](STYLE.md), [the implementation and rollout guide](CATALOGUE_REFRESH.md), and [the repository audit](REPOSITORIES.md), and [validation results](VALIDATION.md).
 
 ## Regenerate
 
