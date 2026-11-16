@@ -4,9 +4,11 @@
 
 OOMP is a collection of reusable part records for electronics, hardware and mechanical projects. Each catalogue brings together part identifiers, structured metadata and available drawings, models or reference files. Start here to find the right repository, then choose an exact part in its catalogue.
 
-[![Catalogue render of an M4 bolt, 40 mm long](presentation/images/m4-bolt.png)](https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_bolt_m4_40_mm_length/)
+| [M3 countersunk](https://github.com/oomlout/oomp_hardware_screw_version_5/tree/main/parts/hardware_screw_countersunk_hex_head_black_m3_diameter_10_mm_length/) | [M3 socket cap](https://github.com/oomlout/oomp_hardware_screw_version_5/tree/main/parts/hardware_screw_socket_cap_hex_head_black_m3_diameter_10_mm_length/) | [M3 nut](https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_nut_m3/) | [M3 washer](https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_washer_m3/) | [M6 × 25 set screw](https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_set_screw_m6_25_mm_length/) |
+| --- | --- | --- | --- | --- |
+| [![Full-detail CAD render: M3 × 10 mm, hex socket](presentation/images/m3-countersunk.png)](presentation/images/m3-countersunk.png) | [![Full-detail CAD render: M3 × 10 mm, hex socket](presentation/images/m3-socket-cap.png)](presentation/images/m3-socket-cap.png) | [![Full-detail CAD render: M3 hex nut](presentation/images/m3-nut.png)](presentation/images/m3-nut.png) | [![Full-detail CAD render: M3 flat washer](presentation/images/m3-washer.png)](presentation/images/m3-washer.png) | [![Full-detail CAD render: M6 × 25 mm, fully threaded hex head](presentation/images/m6x25-set-screw.png)](presentation/images/m6x25-set-screw.png) |
 
-Example: [M4 bolt, 40 mm long](https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_bolt_m4_40_mm_length/). This is a generated catalogue illustration, not a photograph or a dimensional specification.
+Full-detail catalogue renders, reduced for this page. The two M3 screws are 10 mm long; the set screw is M6 × 25 mm with a fully threaded hex head. Click a name for its part record or an image for a larger preview. Illustrations are not to a common scale.
 
 ## Details
 
@@ -14,33 +16,33 @@ Choose a full catalogue for source data and available assets, the visual browser
 
 Repositories checked on 2026-11-16. The list includes GitHub projects absent from this computer and preserves their published names.
 
-### Part catalogues
+Repositories are sorted by their full repository name/code. Lightweight `_only_yaml` exports sit beside their source catalogue.
 
-| Repository | What it provides |
-| --- | --- |
-| [Bearings](https://github.com/oomlout/oomp_bearing_version_5) | Bearing catalogue project; GitHub reports 0 KiB and no root README was available at audit time. |
-| [UK six-outlet extension lead](https://github.com/oomlout/oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5) | Pro Elec 2068 extension-lead records and associated assets. |
-| [Electronic breakouts](https://github.com/oomlout/oomp_electronic_breakout_version_5) | Breakout boards, pin layouts and mounting geometry. |
-| [Electronic projects](https://github.com/oomlout/oomp_electronic_project_version_5) | Board projects, component matching, interactive explorers and production outputs. |
-| [Electronic components](https://github.com/oomlout/oomp_electronic_version_5) | Component records, package drawings, KiCad assets and source metadata. |
-| [Bolts, nuts and washers](https://github.com/oomlout/oomp_hardware_bolt_version_5) | Hardware variants, dimensional drawings, models and supplier records. |
-| [Screws](https://github.com/oomlout/oomp_hardware_screw_version_5) | Screw families and sizes, drawings and generated models. |
-| [Mechanical parts](https://github.com/oomlout/oomp_mechanical_version_5) | Shaft couplers, magnets and timing pulleys with models and drawings. |
+- [oomlout_oomp_version_5](https://github.com/oomlout/oomlout_oomp_version_5) — **OOMP core.** Shared identifiers, metadata and documentation utilities; this directory.
 
-### Browsers and lightweight exports
+- [oomp_bearing_version_5](https://github.com/oomlout/oomp_bearing_version_5) — **Bearings.** Bearing catalogue project; GitHub reports 0 KiB and no root README was available at audit time.
 
-| Repository | What it provides |
-| --- | --- |
-| [Electronics visual browser](https://github.com/oomlout/oomp_electronic_verison_5_pretty) | A compact, illustrated electronics catalogue. The published name spells version as verison. |
-| [Electronics YAML export](https://github.com/oomlout/oomp_electronic_version_5_only_yaml) | Lightweight metadata and thumbnails; GitHub reports 0 KiB and no root README was available at audit time. |
-| [Bolts YAML export](https://github.com/oomlout/oomp_hardware_bolt_version_5_only_yaml) | Lightweight hardware metadata and thumbnails. |
-| [Screws YAML export](https://github.com/oomlout/oomp_hardware_screw_version_5_only_yaml) | Lightweight screw metadata and thumbnails. |
+- [oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5](https://github.com/oomlout/oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5) — **UK six-outlet extension lead.** Pro Elec 2068 extension-lead records and associated assets.
 
-### Shared tools
+- [oomp_electronic_breakout_version_5](https://github.com/oomlout/oomp_electronic_breakout_version_5) — **Electronic breakouts.** Breakout boards, pin layouts and mounting geometry.
 
-| Repository | What it provides |
-| --- | --- |
-| [OOMP core](https://github.com/oomlout/oomlout_oomp_version_5) | Shared identifiers, metadata and documentation utilities; this directory. |
+- [oomp_electronic_project_version_5](https://github.com/oomlout/oomp_electronic_project_version_5) — **Electronic projects.** Board projects, component matching, interactive explorers and production outputs.
+
+- [oomp_electronic_verison_5_pretty](https://github.com/oomlout/oomp_electronic_verison_5_pretty) — **Electronics visual browser.** A compact, illustrated electronics catalogue. The published name spells version as verison.
+
+- [oomp_electronic_version_5](https://github.com/oomlout/oomp_electronic_version_5) — **Electronic components.** Component records, package drawings, KiCad assets and source metadata.
+
+- [oomp_electronic_version_5_only_yaml](https://github.com/oomlout/oomp_electronic_version_5_only_yaml) — **Electronics YAML export.** Lightweight metadata and thumbnails; GitHub reports 0 KiB and no root README was available at audit time.
+
+- [oomp_hardware_bolt_version_5](https://github.com/oomlout/oomp_hardware_bolt_version_5) — **Bolts, nuts and washers.** Hardware variants, dimensional drawings, models and supplier records.
+
+- [oomp_hardware_bolt_version_5_only_yaml](https://github.com/oomlout/oomp_hardware_bolt_version_5_only_yaml) — **Bolts YAML export.** Lightweight hardware metadata and thumbnails.
+
+- [oomp_hardware_screw_version_5](https://github.com/oomlout/oomp_hardware_screw_version_5) — **Screws.** Screw families and sizes, drawings and generated models.
+
+- [oomp_hardware_screw_version_5_only_yaml](https://github.com/oomlout/oomp_hardware_screw_version_5_only_yaml) — **Screws YAML export.** Lightweight screw metadata and thumbnails.
+
+- [oomp_mechanical_version_5](https://github.com/oomlout/oomp_mechanical_version_5) — **Mechanical parts.** Shaft couplers, magnets and timing pulleys with models and drawings.
 
 ## Using the catalogues
 

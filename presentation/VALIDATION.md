@@ -2,6 +2,10 @@
 
 Validated 16 November 2026 after installing the final shared renderer.
 
+Historical snapshot: the user subsequently reverted the electronics rollout.
+Electronics and electronic projects are now maintained elsewhere and excluded
+from further changes here. These results are not a claim about their current files.
+
 - 11 local downstream repositories updated with generator source, configuration and outputs.
 - 5,238 full-catalogue part pages generated; YAML mirrors retain their two-file part layout.
 - 20,138 generated local links checked with zero failures. Retained legacy notes are outside this link audit.

@@ -1,0 +1,41 @@
+{
+  "source_image": "three_d_model/render_high.png",
+  "preview_size": 512,
+  "parts": [
+    {
+      "label": "M3 countersunk",
+      "detail": "M3 × 10 mm, hex socket",
+      "repository": "oomp_hardware_screw_version_5",
+      "part": "hardware_screw_countersunk_hex_head_black_m3_diameter_10_mm_length",
+      "image": "m3-countersunk.png"
+    },
+    {
+      "label": "M3 socket cap",
+      "detail": "M3 × 10 mm, hex socket",
+      "repository": "oomp_hardware_screw_version_5",
+      "part": "hardware_screw_socket_cap_hex_head_black_m3_diameter_10_mm_length",
+      "image": "m3-socket-cap.png"
+    },
+    {
+      "label": "M3 nut",
+      "detail": "M3 hex nut",
+      "repository": "oomp_hardware_bolt_version_5",
+      "part": "hardware_nut_m3",
+      "image": "m3-nut.png"
+    },
+    {
+      "label": "M3 washer",
+      "detail": "M3 flat washer",
+      "repository": "oomp_hardware_bolt_version_5",
+      "part": "hardware_washer_m3",
+      "image": "m3-washer.png"
+    },
+    {
+      "label": "M6 × 25 set screw",
+      "detail": "M6 × 25 mm, fully threaded hex head",
+      "repository": "oomp_hardware_bolt_version_5",
+      "part": "hardware_set_screw_m6_25_mm_length",
+      "image": "m6x25-set-screw.png"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "image": "m3-countersunk.png",
+    "repository": "oomp_hardware_screw_version_5",
+    "source": "parts/hardware_screw_countersunk_hex_head_black_m3_diameter_10_mm_length/three_d_model/render_high.png",
+    "source_sha256": "e6d1ca8582b6baa742568896281ca17fc1e8c3162d370dc44bc2a8322c76306d",
+    "source_size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      512,
+      512
+    ]
+  },
+  {
+    "image": "m3-socket-cap.png",
+    "repository": "oomp_hardware_screw_version_5",
+    "source": "parts/hardware_screw_socket_cap_hex_head_black_m3_diameter_10_mm_length/three_d_model/render_high.png",
+    "source_sha256": "4c4a7b0c54dbac2fd667aab5d17eabf503cd34a337529269604e9079a10ff769",
+    "source_size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      512,
+      512
+    ]
+  },
+  {
+    "image": "m3-nut.png",
+    "repository": "oomp_hardware_bolt_version_5",
+    "source": "parts/hardware_nut_m3/three_d_model/render_high.png",
+    "source_sha256": "3005843ece83657723c2ed362e57bee12e7649b6c01a26bdbb7aa62fadb9ffd7",
+    "source_size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      512,
+      512
+    ]
+  },
+  {
+    "image": "m3-washer.png",
+    "repository": "oomp_hardware_bolt_version_5",
+    "source": "parts/hardware_washer_m3/three_d_model/render_high.png",
+    "source_sha256": "e255b49581e1ee021d7e6785bd7ec59e940338fd93eb8d7914420adf4874eb37",
+    "source_size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      512,
+      512
+    ]
+  },
+  {
+    "image": "m6x25-set-screw.png",
+    "repository": "oomp_hardware_bolt_version_5",
+    "source": "parts/hardware_set_screw_m6_25_mm_length/three_d_model/render_high.png",
+    "source_sha256": "8fc4eb8b224421f9dcdb6d3c63e3f49cf48bc6755e942520893c6fb6f4125335",
+    "source_size": [
+      2048,
+      2048
+    ],
+    "preview_size": [
+      512,
+      512
+    ]
+  }
+]

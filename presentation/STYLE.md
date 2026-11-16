@@ -8,7 +8,7 @@ Keep OOBB's plain introduction, representative object image, compact directory d
 
 ## Base directory
 
-Explain what OOMP provides and help the reader select electronics, breakouts, electronic projects, fasteners, bearings or mechanical parts. Show an actual catalogue render with a named example and source link. Separate full catalogues from lightweight exports and the pretty electronics browser. Include every known version-five repository, retaining its exact published spelling. Keep setup in a secondary README linked near the end.
+Explain what OOMP provides and help the reader select electronics, breakouts, electronic projects, fasteners, bearings or mechanical parts. Show full-detail catalogue renders with named examples and source links. Sort the entire directory by full repository name/code and use that code as the visible link label. Identify full catalogues, lightweight exports and the pretty electronics browser in their descriptions without separating the alphabetical sequence. Include every known version-five repository, retaining its exact published spelling. Keep setup in a secondary README linked near the end.
 
 ## Catalogue root
 

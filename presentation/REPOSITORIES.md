@@ -2,6 +2,12 @@
 
 Audited 16 November 2026. GitHub discovery searched both pages of `user:oomlout oomp in:name` (190 results) and selected `version_5` plus the existing `verison_5` spelling. This found 13 repositories. Scope is the public `oomlout` account, not all forks or private repositories. The reproducible directory inventory is [repositories.json](../data/repositories.json).
 
+**Later ownership update:** the user has reverted the electronics changes and is
+handling `oomp_electronic_version_5` and `oomp_electronic_project_version_5`
+elsewhere. Do not touch either repository's files. Earlier rollout counts below
+are historical; they do not authorize reinstating those changes. The base
+directory continues to link both projects.
+
 ## Local repositories
 
 Eleven downstream checkouts were found alongside the base library in `C:/gh`. The baseline installs a portable renderer, repository configuration, documentation command and secondary maintenance README. Full catalogues receive part pages; exports keep their existing lightweight layout. Existing specialist part notes are retained. The normal `working.run` path refreshes documentation last where that path exists; the dedicated command can also run after specialist entry points.

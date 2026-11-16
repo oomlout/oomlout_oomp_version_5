@@ -16,6 +16,8 @@ from generate_directory import DESCRIPTIONS, ROOT
 
 def install(project):
     project = Path(project).resolve()
+    if project.name in {'oomp_electronic_version_5', 'oomp_electronic_project_version_5'}:
+        raise ValueError('This repository is maintained elsewhere; do not install or regenerate its files here')
     if project == ROOT or project.name not in DESCRIPTIONS:
         raise ValueError('Select a known downstream OOMP version 5 repository')
     if not (project / '.git').exists():

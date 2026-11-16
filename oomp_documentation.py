@@ -79,6 +79,8 @@ def part_body(data, folder, root):
 
 def generate(root):
     root = Path(root).resolve()
+    if root.name in {'oomp_electronic_version_5', 'oomp_electronic_project_version_5'}:
+        raise ValueError('This repository is maintained elsewhere; do not regenerate its files here')
     config = json.loads((root / 'documentation.json').read_text(encoding='utf-8'))
     records = []
     loader = getattr(yaml, 'CSafeLoader', yaml.SafeLoader)

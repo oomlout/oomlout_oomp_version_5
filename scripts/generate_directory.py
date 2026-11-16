@@ -23,21 +23,26 @@ DESCRIPTIONS = {
 def generate():
     inventory = json.loads((ROOT / 'data/repositories.json').read_text(encoding='utf-8'))
     rows = inventory['repositories']
+    gallery = json.loads((ROOT / 'data/directory_gallery.json').read_text(encoding='utf-8'))['parts']
+    gallery_names = []
+    gallery_images = []
+    for item in gallery:
+        url = f'https://github.com/oomlout/{item["repository"]}/tree/main/parts/{item["part"]}/'
+        image = f'presentation/images/{item["image"]}'
+        gallery_names.append(f'[{item["label"]}]({url})')
+        gallery_images.append(f'[![Full-detail CAD render: {item["detail"]}]({image})]({image})')
     lines = ['# OOMP version 5', '', '## Summary', '',
              'OOMP is a collection of reusable part records for electronics, hardware and mechanical projects. Each catalogue brings together part identifiers, structured metadata and available drawings, models or reference files. Start here to find the right repository, then choose an exact part in its catalogue.', '',
-             '[![Catalogue render of an M4 bolt, 40 mm long](presentation/images/m4-bolt.png)](https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_bolt_m4_40_mm_length/)', '',
-             'Example: [M4 bolt, 40 mm long](https://github.com/oomlout/oomp_hardware_bolt_version_5/tree/main/parts/hardware_bolt_m4_40_mm_length/). This is a generated catalogue illustration, not a photograph or a dimensional specification.', '',
+             '| ' + ' | '.join(gallery_names) + ' |',
+             '| ' + ' | '.join(['---'] * len(gallery)) + ' |',
+             '| ' + ' | '.join(gallery_images) + ' |', '',
+             'Full-detail catalogue renders, reduced for this page. The two M3 screws are 10 mm long; the set screw is M6 × 25 mm with a fully threaded hex head. Click a name for its part record or an image for a larger preview. Illustrations are not to a common scale.', '',
              '## Details', '', 'Choose a full catalogue for source data and available assets, the visual browser for quick discovery, or a YAML export for lightweight data use. Files and completeness vary by repository.', '',
              f'Repositories checked on {inventory["checked"]}. The list includes GitHub projects absent from this computer and preserves their published names.', '']
-    for heading, predicate in [('Part catalogues', lambda n: n != 'oomlout_oomp_version_5' and not n.endswith('_only_yaml') and not n.endswith('_pretty')),
-                               ('Browsers and lightweight exports', lambda n: n.endswith('_only_yaml') or n.endswith('_pretty')),
-                               ('Shared tools', lambda n: n == 'oomlout_oomp_version_5')]:
-        lines += ['### ' + heading, '', '| Repository | What it provides |', '| --- | --- |']
-        for row in sorted(rows, key=lambda r: r['name']):
-            if predicate(row['name']):
-                label, description = DESCRIPTIONS[row['name']]
-                lines.append(f'| [{label}]({row["url"]}) | {description} |')
-        lines.append('')
+    lines += ['Repositories are sorted by their full repository name/code. Lightweight `_only_yaml` exports sit beside their source catalogue.', '']
+    for row in sorted(rows, key=lambda r: r['name'].casefold()):
+        label, description = DESCRIPTIONS[row['name']]
+        lines += [f'- [{row["name"]}]({row["url"]}) — **{label}.** {description}', '']
     lines += ['## Using the catalogues', '',
               '1. Open the repository for the component family you need.',
               '2. Follow its catalogue or `parts/` folders to the exact variant.',
