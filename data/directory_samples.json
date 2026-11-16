@@ -41,5 +41,11 @@
     "image": "presentation/images/m3-socket-cap.png",
     "label": "M3 × 10 mm socket cap",
     "target": "https://github.com/oomlout/oomp_hardware_screw_version_5/tree/main/parts/hardware_screw_socket_cap_hex_head_black_m3_diameter_10_mm_length/"
+  },
+  "oomp_bearing_version_5": {
+    "label": "608 bearing / 8 x 22 x 7 mm",
+    "image": "presentation/images/sample-bearing.png",
+    "target": "https://github.com/oomlout/oomp_bearing_version_5/tree/main/parts/hardware_bearing_600_series_608_size_8_mm_id_22_mm_od_7_mm_depth/",
+    "source": "parts/hardware_bearing_600_series_608_size_8_mm_id_22_mm_od_7_mm_depth/three_d_model/render_product_low.png"
   }
 }

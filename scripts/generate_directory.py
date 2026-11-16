@@ -6,7 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DESCRIPTIONS = {
     'oomlout_oomp_version_5': ('OOMP core', 'Shared identifiers, metadata and documentation utilities; this directory.'),
-    'oomp_bearing_version_5': ('Bearings', 'Bearing catalogue project; GitHub reports 0 KiB and no root README was available at audit time.'),
+    'oomp_bearing_version_5': ('Bearings', '339 single-row, flanged and double-row bearing records with dimensioned A4 drawings, STL/GLB models, studio renders and series navigation.'),
     'oomp_mechanical_version_5': ('Mechanical parts', 'Shaft couplers, magnets and timing pulleys with models and drawings.'),
     'oomp_electronic_version_5': ('Electronic components', 'Component records, package drawings, KiCad assets and source metadata.'),
     'oomp_electronic_breakout_version_5': ('Electronic breakouts', 'Breakout boards, pin layouts and mounting geometry.'),
