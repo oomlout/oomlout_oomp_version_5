@@ -40,5 +40,47 @@
       512,
       320
     ]
+  },
+  {
+    "image": "presentation/images/sample-spacer-standoff.png",
+    "repository": "oomp_hardware_spacer_standoff_version_5",
+    "source": "parts/hardware_standoff_m3_stud_to_tapped_hexagon_nylon_white_6_mm_across_flats_6_mm_stud_length_10_mm_depth/three_d_model/render_high.png",
+    "source_sha256": "71af5766c233bf4016949d1dd36d1d715793524ca1ea584c4ab696dc65bc1185",
+    "source_size": [
+      1600,
+      1600
+    ],
+    "preview_size": [
+      512,
+      512
+    ]
+  },
+  {
+    "image": "presentation/images/sample-motor.png",
+    "repository": "oomp_motor_version_5",
+    "source": "parts/motor_stepper_nema_17_40_mm_depth/three_d_model/render_product_high.png",
+    "source_sha256": "7c7d5fc870a431a827229cb9075d97de850b200834ca096c928375a8753b861a",
+    "source_size": [
+      1024,
+      1024
+    ],
+    "preview_size": [
+      512,
+      512
+    ]
+  },
+  {
+    "image": "presentation/images/sample-tool-pliers.png",
+    "repository": "oomp_tool_version_5",
+    "source": "parts/tool_pliers_needle_nose_130_mm_length_blue/three_d_model/render.png",
+    "source_sha256": "e39419fcb7df08acb46963ea85f9fb5987ff76470cce347dce0e9a9ae22168e9",
+    "source_size": [
+      1080,
+      720
+    ],
+    "preview_size": [
+      512,
+      341
+    ]
   }
 ]

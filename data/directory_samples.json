@@ -47,5 +47,29 @@
     "image": "presentation/images/sample-bearing.png",
     "target": "https://github.com/oomlout/oomp_bearing_version_5/tree/main/parts/hardware_bearing_600_series_608_size_8_mm_id_22_mm_od_7_mm_depth/",
     "source": "parts/hardware_bearing_600_series_608_size_8_mm_id_22_mm_od_7_mm_depth/three_d_model/render_product_low.png"
+  },
+  "oomp_hardware_spacer_standoff_version_5": {
+    "image": "presentation/images/sample-spacer-standoff.png",
+    "label": "M3 x 10 mm stud-to-tapped white nylon standoff",
+    "target": "https://github.com/oomlout/oomp_hardware_spacer_standoff_version_5/tree/main/parts/hardware_standoff_m3_stud_to_tapped_hexagon_nylon_white_6_mm_across_flats_6_mm_stud_length_10_mm_depth/",
+    "source": "parts/hardware_standoff_m3_stud_to_tapped_hexagon_nylon_white_6_mm_across_flats_6_mm_stud_length_10_mm_depth/three_d_model/render_high.png"
+  },
+  "oomp_motor_version_5": {
+    "image": "presentation/images/sample-motor.png",
+    "label": "NEMA 17 stepper / 42 x 42 x 40 mm body",
+    "target": "https://github.com/oomlout/oomp_motor_version_5/tree/main/parts/motor_stepper_nema_17_40_mm_depth/",
+    "source": "parts/motor_stepper_nema_17_40_mm_depth/three_d_model/render_product_high.png"
+  },
+  "oomp_three_d_printer_version_5": {
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/DG_%E6%9D%B1%E8%8E%9E_DongGuan_%E5%8D%97%E5%9F%8E%E5%8D%80_Nancheng_%E9%B4%BB%E7%A6%8F%E8%B7%AF_HongFu_Road_%E6%9D%B1%E8%8E%9E%E4%BA%AC%E6%9D%B1%E5%95%86%E5%A0%B4_JD_Mall_Electronics_Showroom_3D_printers_December_2024_R12S_06.jpg",
+    "label": "Bambu Lab A1 mini with AMS lite",
+    "target": "https://github.com/oomlout/oomp_three_d_printer_version_5/tree/main/parts/three_d_printer_printer_bambu_lab_a1_mini/",
+    "credit": "Photo by [NAS 238 WMMNO](https://commons.wikimedia.org/wiki/File:DG_%E6%9D%B1%E8%8E%9E_DongGuan_%E5%8D%97%E5%9F%8E%E5%8D%80_Nancheng_%E9%B4%BB%E7%A6%8F%E8%B7%AF_HongFu_Road_%E6%9D%B1%E8%8E%9E%E4%BA%AC%E6%9D%B1%E5%95%86%E5%A0%B4_JD_Mall_Electronics_Showroom_3D_printers_December_2024_R12S_06.jpg), [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)."
+  },
+  "oomp_tool_version_5": {
+    "image": "presentation/images/sample-tool-pliers.png",
+    "label": "Blue needle-nose pliers, Blender render",
+    "target": "https://github.com/oomlout/oomp_tool_version_5/tree/main/parts/tool_pliers_needle_nose_130_mm_length_blue/",
+    "source": "parts/tool_pliers_needle_nose_130_mm_length_blue/three_d_model/render.png"
   }
 }

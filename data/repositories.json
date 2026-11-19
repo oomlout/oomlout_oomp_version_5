@@ -87,6 +87,30 @@
       "url": "https://github.com/oomlout/oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5",
       "branch": "main",
       "github_size_kb": 1673
+    },
+    {
+      "name": "oomp_hardware_spacer_standoff_version_5",
+      "url": "https://github.com/oomlout/oomp_hardware_spacer_standoff_version_5",
+      "branch": "main"
+    },
+    {
+      "name": "oomp_motor_version_5",
+      "url": "https://github.com/oomlout/oomp_motor_version_5",
+      "branch": "main",
+      "local_catalogue_checked": "2026-11-17"
+    },
+    {
+      "name": "oomp_three_d_printer_version_5",
+      "url": "https://github.com/oomlout/oomp_three_d_printer_version_5",
+      "branch": "main",
+      "local_catalogue_checked": "2026-11-18"
+    },
+    {
+      "name": "oomp_tool_version_5",
+      "url": "https://github.com/oomlout/oomp_tool_version_5",
+      "branch": "main",
+      "local_catalogue_checked": "2026-11-19"
     }
-  ]
+  ],
+  "local_additions_note": "Motor catalogue added from local records on 2026-11-17. 3D printer catalogue added from local records on 2026-11-18. Tool catalogue added from local records on 2026-11-19."
 }

@@ -16,7 +16,7 @@ hardware gallery remains configured in `data/directory_gallery.json`.
 Run `python scripts/refresh_directory_images.py` to rebuild small previews from
 the full-detail hardware renders and the additional local table samples. This
 optional image step requires Pillow and reads only the explicitly allowed bolt,
-screw, mechanical, breakout and extension-lead source repositories. Electronics
+screw, spacer/standoff, bearing, mechanical, motor, breakout, tool and extension-lead source repositories. Electronics
 and electronic projects use small published image URLs from their own READMEs;
 their local files are never read or modified by this image step. Normal README
 generation uses the checked-in configuration and does not read other checkouts.

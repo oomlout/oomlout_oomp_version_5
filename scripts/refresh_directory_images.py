@@ -11,7 +11,8 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 ALLOWED = {'oomp_hardware_screw_version_5', 'oomp_hardware_bolt_version_5'}
-SAMPLE_ALLOWED = ALLOWED | {'oomp_mechanical_version_5', 'oomp_electronic_breakout_version_5',
+SAMPLE_ALLOWED = ALLOWED | {'oomp_tool_version_5', 'oomp_motor_version_5', 'oomp_hardware_spacer_standoff_version_5', 'oomp_bearing_version_5',
+                           'oomp_mechanical_version_5', 'oomp_electronic_breakout_version_5',
                            'oomp_electrical_extension_lead_uk_socket_6_outlet_pro_elec_2068_version_5'}
 
 
